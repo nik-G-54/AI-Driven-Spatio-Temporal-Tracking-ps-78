@@ -1,0 +1,54 @@
+{
+  "amphan-2020": {
+    "domain": {
+      "name": "North Bay of Bengal, Ganga Delta & Odisha Bight",
+      "domainLabel": "19.0°N–24.5°N, 86.0°E–91.0°E",
+      "bounds": { "north": 24.5, "south": 19.0, "east": 91.0, "west": 86.0 }
+    },
+    "locationTag": "Bay of Bengal, Sundarbans, Kolkata",
+    "legend": [
+      { "id": "ground-truth", "label": "Ground Truth", "color": "#2563EB", "type": "track" },
+      { "id": "ai-track", "label": "AI Track (5km)", "color": "#BA1A1A", "type": "track" },
+      { "id": "hazard-envelope", "label": "Hazard Envelope", "color": "#9863FF", "type": "area" }
+    ]
+  },
+  "heatwave-2022": {
+    "domain": {
+      "name": "Indo-Gangetic Plain, North & Northwest India",
+      "domainLabel": "24.0°N–31.0°N, 72.0°E–80.0°E",
+      "bounds": { "north": 31.0, "south": 24.0, "east": 80.0, "west": 72.0 }
+    },
+    "locationTag": "Rajasthan, Delhi NCR, Uttar Pradesh",
+    "legend": [
+      { "id": "ground-truth", "label": "Ground Truth", "color": "#2563EB", "type": "track" },
+      { "id": "ai-track", "label": "AI Track (5km)", "color": "#BA1A1A", "type": "track" },
+      { "id": "hazard-envelope", "label": "Hazard Envelope", "color": "#9863FF", "type": "area" }
+    ]
+  },
+  "mumbai-2021": {
+    "domain": {
+      "name": "Mumbai Metropolitan Region, Arabian Sea Coast",
+      "domainLabel": "18.8°N–19.3°N, 72.6°E–73.1°E",
+      "bounds": { "north": 19.3, "south": 18.8, "east": 73.1, "west": 72.6 }
+    },
+    "locationTag": "Mumbai, Thane, Arabian Sea Coast",
+    "legend": [
+      { "id": "ground-truth", "label": "Ground Truth", "color": "#2563EB", "type": "track" },
+      { "id": "ai-track", "label": "AI Track (5km)", "color": "#BA1A1A", "type": "track" },
+      { "id": "hazard-envelope", "label": "Hazard Envelope", "color": "#9863FF", "type": "area" }
+    ]
+  },
+  "biparjoy-2023": {
+    "domain": {
+      "name": "Arabian Sea, Gujarat Saurashtra & Kutch Coast",
+      "domainLabel": "18.0°N–24.5°N, 66.0°E–72.0°E",
+      "bounds": { "north": 24.5, "south": 18.0, "east": 72.0, "west": 66.0 }
+    },
+    "locationTag": "Arabian Sea, Kutch, Gujarat Coast",
+    "legend": [
+      { "id": "ground-truth", "label": "Ground Truth", "color": "#2563EB", "type": "track" },
+      { "id": "ai-track", "label": "AI Track (5km)", "color": "#BA1A1A", "type": "track" },
+      { "id": "hazard-envelope", "label": "Hazard Envelope", "color": "#9863FF", "type": "area" }
+    ]
+  }
+}

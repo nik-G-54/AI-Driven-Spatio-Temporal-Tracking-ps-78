@@ -1,0 +1,51 @@
+{
+  "domain": {
+    "label": "Indian Ocean & South Asia Basin (10°N–25°N, 75°E–95°E)",
+    "latRange": [10, 25],
+    "lonRange": [75, 95]
+  },
+  "layers": [
+    { "id": "nwp12km", "label": "12 km NWP", "defaultActive": true },
+    { "id": "heatmap", "label": "Anomaly Heatmap", "defaultActive": true },
+    { "id": "trajectory", "label": "Trajectory", "defaultActive": true },
+    { "id": "riskCells", "label": "5 km High-Risk", "defaultActive": true },
+    { "id": "ensembleSpread", "label": "Ensemble Spread", "defaultActive": true }
+  ],
+  "selectedTarget": {
+    "eventId": "CYC-2609-BOB",
+    "alertId": "AL-02",
+    "severity": "SEVERE",
+    "center": { "latitude": 16.4, "longitude": 88.2 },
+    "peakPrecipitation": { "value": 214, "unit": "mm/day" },
+    "windRadius": { "value": 115, "unit": "km/h" },
+    "leadTime": "T+48h Window"
+  },
+  "secondaryAnomaly": {
+    "id": "ARB-01",
+    "label": "Arabian Sea Deep Convection",
+    "center": { "latitude": 13.6, "longitude": 78.4 },
+    "extentDeg": 3
+  },
+  "trajectory": [
+    { "leadHour": 0, "latitude": 10.7, "longitude": 91.0 },
+    { "leadHour": 24, "latitude": 13.5, "longitude": 89.6 },
+    { "leadHour": 48, "latitude": 16.4, "longitude": 88.2 },
+    { "leadHour": 72, "latitude": 18.1, "longitude": 86.8 }
+  ],
+  "riskCells": [
+    { "latitude": 18.455, "longitude": 89.4375, "severity": "severe" },
+    { "latitude": 18.455, "longitude": 89.8125, "severity": "severe" },
+    { "latitude": 18.455, "longitude": 90.1875, "severity": "severe" },
+    { "latitude": 17.909, "longitude": 89.0625, "severity": "severe" },
+    { "latitude": 17.909, "longitude": 89.4375, "severity": "extreme" },
+    { "latitude": 17.909, "longitude": 89.8125, "severity": "extreme" },
+    { "latitude": 17.909, "longitude": 90.1875, "severity": "extreme" },
+    { "latitude": 17.364, "longitude": 89.0625, "severity": "extreme" },
+    { "latitude": 17.364, "longitude": 89.4375, "severity": "extreme" },
+    { "latitude": 16.273, "longitude": 88.6875, "severity": "high" }
+  ],
+  "legend": {
+    "projection": "EPSG:4326",
+    "scale": "1:5,000,000"
+  }
+}

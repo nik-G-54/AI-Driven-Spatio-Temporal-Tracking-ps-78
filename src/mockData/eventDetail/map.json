@@ -1,0 +1,57 @@
+{
+  "domain": {
+    "name": "Puri-Chilika Coastal Sector",
+    "bounds": { "north": 20.3, "south": 19.3, "east": 86.51, "west": 85.31 }
+  },
+  "nwpField": {
+    "resolutionKm": 12,
+    "gridMeshLabel": "12 × 12 KM",
+    "fieldPeak": { "value": 142, "unit": "mm/day" },
+    "blurAreaKm": 36,
+    "resolutionLabel": "Coarse",
+    "centroid": { "latitude": 19.8214, "longitude": 85.9124 }
+  },
+  "aiField": {
+    "resolutionKm": 5,
+    "gridMeshLabel": "5 × 5 KM",
+    "truePeak": { "value": 214, "unit": "mm/day" },
+    "peakRecoveryPercent": 51,
+    "highRiskCells": 126,
+    "epicenter": {
+      "cellId": "C-1284",
+      "latitude": 19.8214,
+      "longitude": 85.9124,
+      "peak": { "value": 214.2, "unit": "mm/d" },
+      "peakChangePercent": 51
+    },
+    "cells": [
+      { "col": 10, "row": 9, "tier": "low" },
+      { "col": 11, "row": 8, "tier": "low" },
+      { "col": 19, "row": 10, "tier": "low" },
+      { "col": 20, "row": 9, "tier": "low" },
+      { "col": 13, "row": 15, "tier": "low" },
+      { "col": 14, "row": 16, "tier": "low" },
+      { "col": 12, "row": 9, "tier": "moderate" },
+      { "col": 13, "row": 9, "tier": "moderate" },
+      { "col": 12, "row": 10, "tier": "moderate" },
+      { "col": 18, "row": 10, "tier": "moderate" },
+      { "col": 16, "row": 13, "tier": "moderate" },
+      { "col": 17, "row": 12, "tier": "moderate" },
+      { "col": 15, "row": 14, "tier": "moderate" },
+      { "col": 14, "row": 14, "tier": "moderate" },
+      { "col": 14, "row": 10, "tier": "high" },
+      { "col": 15, "row": 10, "tier": "high" },
+      { "col": 16, "row": 10, "tier": "high" },
+      { "col": 17, "row": 10, "tier": "high" },
+      { "col": 13, "row": 11, "tier": "high" },
+      { "col": 17, "row": 11, "tier": "high" },
+      { "col": 14, "row": 13, "tier": "high" },
+      { "col": 15, "row": 13, "tier": "high" },
+      { "col": 14, "row": 11, "tier": "severe" },
+      { "col": 16, "row": 11, "tier": "severe" },
+      { "col": 16, "row": 12, "tier": "severe" },
+      { "col": 15, "row": 11, "tier": "extreme", "isEpicenter": true },
+      { "col": 15, "row": 12, "tier": "extreme" }
+    ]
+  }
+}

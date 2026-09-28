@@ -1,0 +1,5 @@
+[
+  { "id": "BOB-02", "label": "CYCLONIC ANOMALY (BOB-02) - SEVERE", "severity": "SEVERE" },
+  { "id": "AS-01", "label": "MONSOON DEPRESSION (AS-01) - ADVISORY", "severity": "ADVISORY" },
+  { "id": "NE-04", "label": "DEEP CONVECTIVE PLUME (NE-04) - WATCH", "severity": "WATCH" }
+]

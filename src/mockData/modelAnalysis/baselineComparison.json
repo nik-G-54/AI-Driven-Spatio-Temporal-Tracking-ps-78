@@ -1,0 +1,43 @@
+{
+  "sampleSize": { "count": 42, "label": "Verified Cyclone Events" },
+  "rows": [
+    {
+      "metric": "Peak Intensity Preservation",
+      "baseline": { "value": "142 mm/day", "note": "(severely smoothed)", "noteVariant": "danger" },
+      "proposed": { "value": "214 mm/day", "note": "(captures local peaks)", "noteVariant": "success" },
+      "improvement": { "value": "+51%", "label": "peak extreme capture", "variant": "success" },
+      "status": { "label": "Verified on IMD Gauges", "variant": "info" }
+    },
+    {
+      "metric": "Spatial Resolution",
+      "baseline": { "value": "12 km × 12 km (144 km² cell)" },
+      "proposed": { "value": "5 km × 5 km (25 km² cell)" },
+      "improvement": { "value": "5.7×", "label": "higher spatial fidelity", "variant": "neutral" },
+      "status": { "label": "Operational", "variant": "success" }
+    },
+    {
+      "metric": "Track Centroid Error (48h)",
+      "baseline": { "value": "68.4 km" },
+      "proposed": { "value": "42.8 km" },
+      "improvement": { "value": "25.6 km", "label": "mean error reduction", "variant": "success" },
+      "status": { "label": "Verified", "variant": "neutral" }
+    },
+    {
+      "metric": "Lead Time to Alert",
+      "baseline": { "value": "T+3.5 hours post-cycle" },
+      "proposed": { "value": "T+18 minutes post-cycle" },
+      "improvement": { "value": "11×", "label": "faster localized alert", "variant": "info" },
+      "status": { "label": "Operational", "variant": "success" }
+    },
+    {
+      "metric": "Physical Mass Conservation",
+      "baseline": { "value": "100% (Native dynamical core)" },
+      "proposed": { "value": "98.2% (Physics-informed loss constraint)" },
+      "improvement": { "value": "Within acceptable bounds", "label": "(±2%)", "variant": "neutral" },
+      "status": { "label": "Enforced", "variant": "primary" }
+    }
+  ],
+  "footerNote": "All performance numbers measured across 42 historical tropical cyclone and extreme monsoonal precipitation cases (2018–2025). DEMO / SIMULATION.",
+  "stationId": "WMO-43003",
+  "validationSuiteVersion": "v3.4.1"
+}

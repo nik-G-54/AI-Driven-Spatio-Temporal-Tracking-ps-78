@@ -1,0 +1,15 @@
+{
+  "eventId": "BOB-02",
+  "modelRunId": "NEPS-G-20260927-00",
+  "cycle": "00 UTC",
+  "inputResolutionKm": 12,
+  "outputResolutionKm": 5,
+  "forecastLeadHour": 48,
+  "ensembleMembers": 42,
+  "analysisTimestamp": "27 SEP 2026, 00:00 UTC",
+  "validationLabel": "VALIDATION & BENCHMARKS",
+  "stageLabel": "STAGE 3 EVAL",
+  "title": "Model Analysis & Verification",
+  "description": "Performance, architecture verification, and quantitative evaluation of the spatio-temporal tracking and downscaling pipeline.",
+  "benchmarkDatasetLabel": "NEPS-G 10-Year Verification"
+}

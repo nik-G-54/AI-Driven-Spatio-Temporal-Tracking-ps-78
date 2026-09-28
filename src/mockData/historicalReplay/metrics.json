@@ -1,0 +1,178 @@
+{
+  "amphan-2020": {
+    "validation": {
+      "observedPeakRainfall": { "value": 248.5, "unit": "mm/day", "source": "Recorded at IMD Alipore Observatory (Kolkata)" },
+      "aiDownscaledPeak": { "value": 241.2, "unit": "mm/day", "capturePercent": 97.0, "deviationPercent": -2.9 },
+      "rawNwpPeak": { "value": 162.0, "unit": "mm/day", "dilutedPercent": -35, "note": "Underpredicted extreme localized surge by 35%" },
+      "landfallTrackError": { "value": 31.4, "unit": "kilometers", "evaluatedAtHour": 48 }
+    },
+    "mosaic": {
+      "pressureDrop": {
+        "minHpa": 907,
+        "footer": [
+          { "label": "T-48h", "value": 976 },
+          { "label": "Peak", "value": 907, "highlight": true },
+          { "label": "Dissipation", "value": 988 }
+        ],
+        "series": [
+          { "t": 0, "baselineHpa": 1000, "groundTruthHpa": 1001, "aiHpa": 1000.5 },
+          { "t": 25, "baselineHpa": 994, "groundTruthHpa": 996, "aiHpa": 995.5 },
+          { "t": 50, "baselineHpa": 985, "groundTruthHpa": 907, "aiHpa": 912 },
+          { "t": 75, "baselineHpa": 992, "groundTruthHpa": 960, "aiHpa": 958 },
+          { "t": 100, "baselineHpa": 998, "groundTruthHpa": 1001, "aiHpa": 1000.5 }
+        ]
+      },
+      "topography": {
+        "badge": "5km Resolved",
+        "nwpCellLabel": "NWP Cell",
+        "nwpCellAreaKm2": 144,
+        "resolvingGainMultiplier": 5.76,
+        "resolvingGainPercent": 85,
+        "caption": "Coastline roughness resolved at 5km conditional mesh",
+        "footerText": "Correctly captured 82 km/h surface wind drag reduction over dense mangrove canopy."
+      },
+      "compute": {
+        "badge": "4.8s / 24h",
+        "rows": [
+          { "label": "ERA5 Boundary Ingest:", "value": "1.2 GB (NetCDF4)" },
+          { "label": "Diffusion Reverse Sampling:", "value": "20 Steps • DDIM" },
+          { "label": "Total Hindcast Runtime:", "value": "24.2 seconds" }
+        ],
+        "seed": "#048291",
+        "reproducible": true
+      }
+    }
+  },
+  "heatwave-2022": {
+    "validation": {
+      "observedPeakRainfall": { "value": 49.2, "unit": "°C Tmax", "source": "Recorded at IMD Safdarjung Observatory (Delhi)" },
+      "aiDownscaledPeak": { "value": 48.7, "unit": "°C Tmax", "capturePercent": 99.0, "deviationPercent": -1.0 },
+      "rawNwpPeak": { "value": 45.9, "unit": "°C Tmax", "dilutedPercent": -12, "note": "Underpredicted urban heat-island intensification by 12%" },
+      "landfallTrackError": { "value": 13.6, "unit": "kilometers", "evaluatedAtHour": 24 }
+    },
+    "mosaic": {
+      "pressureDrop": {
+        "minHpa": 1002,
+        "footer": [
+          { "label": "T-24h", "value": 1004 },
+          { "label": "Peak", "value": 1002, "highlight": true },
+          { "label": "Dissipation", "value": 1005 }
+        ],
+        "series": [
+          { "t": 0, "baselineHpa": 1006, "groundTruthHpa": 1006, "aiHpa": 1006 },
+          { "t": 25, "baselineHpa": 1005, "groundTruthHpa": 1004, "aiHpa": 1004.5 },
+          { "t": 50, "baselineHpa": 1003, "groundTruthHpa": 1002, "aiHpa": 1002.2 },
+          { "t": 75, "baselineHpa": 1004, "groundTruthHpa": 1003, "aiHpa": 1003.2 },
+          { "t": 100, "baselineHpa": 1005, "groundTruthHpa": 1005, "aiHpa": 1005 }
+        ]
+      },
+      "topography": {
+        "badge": "5km Resolved",
+        "nwpCellLabel": "NWP Cell",
+        "nwpCellAreaKm2": 144,
+        "resolvingGainMultiplier": 5.76,
+        "resolvingGainPercent": 78,
+        "caption": "Urban heat-island roughness resolved at 5km conditional mesh",
+        "footerText": "Correctly captured nighttime cooling suppression over dense NCR built-up terrain."
+      },
+      "compute": {
+        "badge": "3.9s / 24h",
+        "rows": [
+          { "label": "ERA5 Boundary Ingest:", "value": "1.1 GB (NetCDF4)" },
+          { "label": "Diffusion Reverse Sampling:", "value": "20 Steps • DDIM" },
+          { "label": "Total Hindcast Runtime:", "value": "21.6 seconds" }
+        ],
+        "seed": "#048317",
+        "reproducible": true
+      }
+    }
+  },
+  "mumbai-2021": {
+    "validation": {
+      "observedPeakRainfall": { "value": 438.0, "unit": "mm/24h", "source": "Recorded at IMD Santacruz Observatory (Mumbai)" },
+      "aiDownscaledPeak": { "value": 419.5, "unit": "mm/24h", "capturePercent": 95.8, "deviationPercent": -4.2 },
+      "rawNwpPeak": { "value": 271.0, "unit": "mm/24h", "dilutedPercent": -38, "note": "Underpredicted extreme localized rainfall by 38%" },
+      "landfallTrackError": { "value": 2.7, "unit": "kilometers", "evaluatedAtHour": 12 }
+    },
+    "mosaic": {
+      "pressureDrop": {
+        "minHpa": 996,
+        "footer": [
+          { "label": "T-12h", "value": 999 },
+          { "label": "Peak", "value": 996, "highlight": true },
+          { "label": "Dissipation", "value": 1001 }
+        ],
+        "series": [
+          { "t": 0, "baselineHpa": 1002, "groundTruthHpa": 1002, "aiHpa": 1002 },
+          { "t": 25, "baselineHpa": 1000, "groundTruthHpa": 999, "aiHpa": 999.2 },
+          { "t": 50, "baselineHpa": 998, "groundTruthHpa": 996, "aiHpa": 996.3 },
+          { "t": 75, "baselineHpa": 999, "groundTruthHpa": 999, "aiHpa": 999.1 },
+          { "t": 100, "baselineHpa": 1001, "groundTruthHpa": 1001, "aiHpa": 1001 }
+        ]
+      },
+      "topography": {
+        "badge": "5km Resolved",
+        "nwpCellLabel": "NWP Cell",
+        "nwpCellAreaKm2": 144,
+        "resolvingGainMultiplier": 5.76,
+        "resolvingGainPercent": 91,
+        "caption": "Urban drainage micro-topography resolved at 5km conditional mesh",
+        "footerText": "Correctly captured coastal convergence intensification over Mithi River catchment."
+      },
+      "compute": {
+        "badge": "4.1s / 24h",
+        "rows": [
+          { "label": "ERA5 Boundary Ingest:", "value": "0.9 GB (NetCDF4)" },
+          { "label": "Diffusion Reverse Sampling:", "value": "20 Steps • DDIM" },
+          { "label": "Total Hindcast Runtime:", "value": "18.9 seconds" }
+        ],
+        "seed": "#048352",
+        "reproducible": true
+      }
+    }
+  },
+  "biparjoy-2023": {
+    "validation": {
+      "observedPeakRainfall": { "value": 184.0, "unit": "mm/day", "source": "Recorded at IMD Bhuj Observatory (Kutch)" },
+      "aiDownscaledPeak": { "value": 176.8, "unit": "mm/day", "capturePercent": 96.1, "deviationPercent": -3.9 },
+      "rawNwpPeak": { "value": 128.0, "unit": "mm/day", "dilutedPercent": -30, "note": "Underpredicted extreme localized surge by 30%" },
+      "landfallTrackError": { "value": 24.6, "unit": "kilometers", "evaluatedAtHour": 48 }
+    },
+    "mosaic": {
+      "pressureDrop": {
+        "minHpa": 968,
+        "footer": [
+          { "label": "T-24h", "value": 972 },
+          { "label": "Peak", "value": 968, "highlight": true },
+          { "label": "Dissipation", "value": 985 }
+        ],
+        "series": [
+          { "t": 0, "baselineHpa": 986, "groundTruthHpa": 984, "aiHpa": 984.5 },
+          { "t": 25, "baselineHpa": 980, "groundTruthHpa": 972, "aiHpa": 973 },
+          { "t": 50, "baselineHpa": 975, "groundTruthHpa": 968, "aiHpa": 969.2 },
+          { "t": 75, "baselineHpa": 978, "groundTruthHpa": 975, "aiHpa": 975.5 },
+          { "t": 100, "baselineHpa": 983, "groundTruthHpa": 985, "aiHpa": 984.8 }
+        ]
+      },
+      "topography": {
+        "badge": "5km Resolved",
+        "nwpCellLabel": "NWP Cell",
+        "nwpCellAreaKm2": 144,
+        "resolvingGainMultiplier": 5.76,
+        "resolvingGainPercent": 80,
+        "caption": "Salt-marsh coastline roughness resolved at 5km conditional mesh",
+        "footerText": "Correctly captured 68 km/h surface wind drag reduction over Kutch salt marsh terrain."
+      },
+      "compute": {
+        "badge": "5.1s / 24h",
+        "rows": [
+          { "label": "ERA5 Boundary Ingest:", "value": "1.4 GB (NetCDF4)" },
+          { "label": "Diffusion Reverse Sampling:", "value": "20 Steps • DDIM" },
+          { "label": "Total Hindcast Runtime:", "value": "27.3 seconds" }
+        ],
+        "seed": "#048406",
+        "reproducible": true
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+[
+  { "id": "ground-truth-vs-model", "label": "Historical Ground Truth vs Model" },
+  { "id": "ai-vs-baseline", "label": "AI Diffusion (5km) vs Baseline NWP (12km)" },
+  { "id": "error-heatmap", "label": "Spatial Error & Discrepancy Heatmap" }
+]

@@ -1,0 +1,16 @@
+{
+  "runtimeId": "PROD-DIFF-5K-R21-CUDA",
+  "specs": [
+    { "label": "Base NWP Input", "value": "NEPS-G / NCUM", "detail": "12 km global grid" },
+    { "label": "Target Resolution", "value": "5 km Localized Grid", "detail": "25 km² area per point" },
+    { "label": "Tracking Architecture", "value": "Spatio-Temporal GNN", "detail": "PyTorch Geometric (Spherical)" },
+    { "label": "Downscaling Backbone", "value": "Conditional Diffusion", "detail": "UNet-Physics conditioned" },
+    {
+      "label": "Physical Constraints",
+      "value": "Total Moisture Mass",
+      "detail": "Conserved within ±2%",
+      "detailVariant": "success"
+    },
+    { "label": "Inference Framework", "value": "PyTorch / ONNX RT", "detail": "GPU accelerated (FP16)" }
+  ]
+}

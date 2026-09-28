@@ -1,0 +1,17 @@
+{
+  "BOB-02": {
+    "windCoreRadius": { "value": 45, "unit": "km", "label": "RMW", "classification": "Cat 1 Equiv" },
+    "precipitableWater": { "value": 68.4, "unit": "kg/m²", "percentile": ">98th Percentile" },
+    "translationSpeed": { "value": 14.8, "unit": "km/h", "direction": "NW", "steeringLevel": "500hPa" }
+  },
+  "AS-01": {
+    "windCoreRadius": { "value": 25, "unit": "km", "label": "RMW", "classification": "Depression Equiv" },
+    "precipitableWater": { "value": 52.1, "unit": "kg/m²", "percentile": ">80th Percentile" },
+    "translationSpeed": { "value": 9.2, "unit": "km/h", "direction": "W", "steeringLevel": "500hPa" }
+  },
+  "NE-04": {
+    "windCoreRadius": { "value": 12, "unit": "km", "label": "RMW", "classification": "Sub-Tropical Equiv" },
+    "precipitableWater": { "value": 44.0, "unit": "kg/m²", "percentile": ">70th Percentile" },
+    "translationSpeed": { "value": 6.1, "unit": "km/h", "direction": "NE", "steeringLevel": "500hPa" }
+  }
+}

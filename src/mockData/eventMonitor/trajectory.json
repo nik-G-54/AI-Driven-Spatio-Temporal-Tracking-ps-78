@@ -1,0 +1,107 @@
+{
+  "BOB-02": {
+    "historical": [
+      { "leadHour": -24, "timestamp": "27 SEP 2026, 00:00 UTC", "latitude": 14.8, "longitude": 89.6 },
+      { "leadHour": -12, "timestamp": "27 SEP 2026, 12:00 UTC", "latitude": 15.6, "longitude": 88.9 }
+    ],
+    "forecast": [
+      { "leadHour": 0, "timestamp": "28 SEP 2026, 00:00 UTC", "latitude": 16.42, "longitude": 88.19, "status": "observed" },
+      { "leadHour": 12, "timestamp": "28 SEP 2026, 12:00 UTC", "latitude": 17.3, "longitude": 87.6 },
+      { "leadHour": 24, "timestamp": "29 SEP 2026, 00:00 UTC", "latitude": 18.1, "longitude": 87.0 },
+      { "leadHour": 36, "timestamp": "29 SEP 2026, 12:00 UTC", "latitude": 18.9, "longitude": 86.6 },
+      { "leadHour": 48, "timestamp": "30 SEP 2026, 00:00 UTC", "latitude": 19.82, "longitude": 86.44, "status": "landfall" },
+      { "leadHour": 72, "timestamp": "01 OCT 2026, 00:00 UTC", "latitude": 21.0, "longitude": 85.6 }
+    ],
+    "uncertaintyCone": {
+      "confidence": 90,
+      "points": [
+        { "latitude": 16.42, "longitude": 88.19 },
+        { "latitude": 18.6, "longitude": 87.9 },
+        { "latitude": 20.5, "longitude": 86.9 },
+        { "latitude": 19.2, "longitude": 85.6 },
+        { "latitude": 17.6, "longitude": 86.9 }
+      ]
+    },
+    "hazardFootprint": {
+      "center": { "latitude": 19.82, "longitude": 86.44 },
+      "windRadiusKm": 130,
+      "rainfallCoreRadiusKm": 75,
+      "rainfallThresholdMmDay": 100,
+      "rotationDeg": -25
+    },
+    "downscaling": {
+      "resolutionKm": 5,
+      "affectedCells": 126,
+      "extremeCells": 38,
+      "bounds": { "north": 20.3, "south": 19.3, "east": 87.0, "west": 85.8 }
+    }
+  },
+  "AS-01": {
+    "historical": [
+      { "leadHour": -24, "timestamp": "27 SEP 2026, 12:00 UTC", "latitude": 13.2, "longitude": 85.5 },
+      { "leadHour": -12, "timestamp": "28 SEP 2026, 00:00 UTC", "latitude": 13.9, "longitude": 84.7 }
+    ],
+    "forecast": [
+      { "leadHour": 0, "timestamp": "28 SEP 2026, 12:00 UTC", "latitude": 14.5, "longitude": 84.0, "status": "observed" },
+      { "leadHour": 12, "timestamp": "29 SEP 2026, 00:00 UTC", "latitude": 15.0, "longitude": 83.5 },
+      { "leadHour": 24, "timestamp": "29 SEP 2026, 12:00 UTC", "latitude": 15.6, "longitude": 83.0 },
+      { "leadHour": 36, "timestamp": "30 SEP 2026, 00:00 UTC", "latitude": 16.1, "longitude": 82.6, "status": "landfall" }
+    ],
+    "uncertaintyCone": {
+      "confidence": 90,
+      "points": [
+        { "latitude": 14.5, "longitude": 84.0 },
+        { "latitude": 15.6, "longitude": 83.6 },
+        { "latitude": 16.6, "longitude": 82.7 },
+        { "latitude": 15.7, "longitude": 82.2 },
+        { "latitude": 14.9, "longitude": 83.2 }
+      ]
+    },
+    "hazardFootprint": {
+      "center": { "latitude": 16.1, "longitude": 82.6 },
+      "windRadiusKm": 60,
+      "rainfallCoreRadiusKm": 35,
+      "rainfallThresholdMmDay": 80,
+      "rotationDeg": -15
+    },
+    "downscaling": {
+      "resolutionKm": 5,
+      "affectedCells": 42,
+      "extremeCells": 6,
+      "bounds": { "north": 16.6, "south": 15.7, "east": 83.1, "west": 82.2 }
+    }
+  },
+  "NE-04": {
+    "historical": [
+      { "leadHour": -12, "timestamp": "28 SEP 2026, 12:00 UTC", "latitude": 20.5, "longitude": 90.8 }
+    ],
+    "forecast": [
+      { "leadHour": 0, "timestamp": "29 SEP 2026, 00:00 UTC", "latitude": 20.8, "longitude": 90.5, "status": "observed" },
+      { "leadHour": 12, "timestamp": "29 SEP 2026, 12:00 UTC", "latitude": 21.0, "longitude": 90.2, "status": "landfall" },
+      { "leadHour": 24, "timestamp": "30 SEP 2026, 00:00 UTC", "latitude": 21.2, "longitude": 89.9 }
+    ],
+    "uncertaintyCone": {
+      "confidence": 90,
+      "points": [
+        { "latitude": 20.8, "longitude": 90.5 },
+        { "latitude": 21.3, "longitude": 90.3 },
+        { "latitude": 21.6, "longitude": 89.7 },
+        { "latitude": 21.0, "longitude": 89.6 },
+        { "latitude": 20.7, "longitude": 90.0 }
+      ]
+    },
+    "hazardFootprint": {
+      "center": { "latitude": 21.0, "longitude": 90.2 },
+      "windRadiusKm": 30,
+      "rainfallCoreRadiusKm": 20,
+      "rainfallThresholdMmDay": 60,
+      "rotationDeg": 10
+    },
+    "downscaling": {
+      "resolutionKm": 5,
+      "affectedCells": 18,
+      "extremeCells": 2,
+      "bounds": { "north": 21.3, "south": 20.7, "east": 90.5, "west": 89.9 }
+    }
+  }
+}

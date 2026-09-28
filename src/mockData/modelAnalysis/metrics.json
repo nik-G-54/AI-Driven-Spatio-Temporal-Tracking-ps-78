@@ -1,0 +1,35 @@
+{
+  "trackError": {
+    "category": "Vortex Trajectory",
+    "title": "Track Error (T+48h)",
+    "value": 42.8,
+    "unit": "km",
+    "trend": { "direction": "down", "label": "-37% Error", "variant": "success" },
+    "description": "vs 68.4 km baseline NWP centroid"
+  },
+  "spatialLocalization": {
+    "category": "Precipitation Core",
+    "title": "Spatial Localization (IoU)",
+    "value": 0.78,
+    "unit": "IoU",
+    "trend": { "direction": "up", "label": "+24% Localization", "variant": "success" },
+    "description": "Intersection-over-Union on >100mm field"
+  },
+  "peakIntensityRecovery": {
+    "category": "Extreme Value Capture",
+    "title": "Peak Intensity Recovery",
+    "value": 94.6,
+    "unit": "Gauge Match",
+    "valueSuffix": "%",
+    "trend": { "direction": "check_circle", "label": "+38% vs Raw NWP", "variant": "success" },
+    "description": "Eliminates NWP spatial smoothing bias"
+  },
+  "inferenceLatency": {
+    "category": "Execution Speed",
+    "title": "Inference Latency",
+    "value": 4.2,
+    "unit": "sec",
+    "trend": { "direction": "bolt", "label": "Real-time Capable", "variant": "info" },
+    "description": "Per 500×500km domain on single A100 GPU"
+  }
+}

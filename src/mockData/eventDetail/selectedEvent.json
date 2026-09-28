@@ -1,0 +1,6 @@
+{
+  "id": "bob-02",
+  "eventCode": "CYC-2026-BOB-02",
+  "title": "Event Detail: AI Downscaling & Localized Risk",
+  "description": "Compare the original 12 km NWP forecast field against the AI-refined 5 km localized hazard field for Event BOB-02."
+}

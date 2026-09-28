@@ -1,0 +1,81 @@
+{
+  "description": "From raw 12 km NWP ensemble gridded forecasts to localized 5 km impact warnings",
+  "activeStagesCount": 6,
+  "cycleSyncLabel": "00 UTC Synchronized",
+  "stages": [
+    {
+      "order": 1,
+      "name": "01. NWP INPUT",
+      "model": "NEPS-G",
+      "badge": "Raw Grids",
+      "badgeVariant": "neutral",
+      "description": "12 km Ensemble (NEPS-G/NCUM), 23 members, geopotential & precip",
+      "footerLeft": "Grid: 12km²",
+      "icon": "grid_4x4",
+      "status": "complete"
+    },
+    {
+      "order": 2,
+      "name": "02. ANOMALY DETECT",
+      "model": "CNN",
+      "badge": "Anomaly Bounding",
+      "badgeVariant": "info",
+      "description": "Extreme Forecast Index (EFI) thresholding + spatial DBSCAN clustering",
+      "footerLeft": "EFI > 0.82 Clustered",
+      "icon": "filter_center_focus",
+      "status": "complete"
+    },
+    {
+      "order": 3,
+      "name": "03. SPATIO-TEMP GNN",
+      "model": "GNN",
+      "badge": "Track & Cone",
+      "badgeVariant": "primary",
+      "description": "Spherical Graph Neural Network for trajectory fitting & vortex tracking",
+      "footerLeft": "PyTorch Geometric",
+      "icon": "hub",
+      "status": "complete"
+    },
+    {
+      "order": 4,
+      "name": "04. DIFFUSION",
+      "model": "U-Net",
+      "badge": "AI 5km Refine",
+      "badgeVariant": "ai",
+      "description": "Physics-constrained super-resolution generative latent diffusion",
+      "footerLeft": "UNet + Mass Loss",
+      "icon": "auto_awesome",
+      "status": "complete"
+    },
+    {
+      "order": 5,
+      "name": "05. 5KM HAZARD",
+      "model": "Post-Processor",
+      "badge": "126 Cells",
+      "badgeVariant": "danger",
+      "description": "Localized high-risk cells, orographic rain enhancements, microburst peak",
+      "footerLeft": "25km² Sub-grid",
+      "icon": "warning",
+      "status": "complete"
+    },
+    {
+      "order": 6,
+      "name": "06. ALERT OUTPUT",
+      "model": "CAP Encoder",
+      "badge": "Dispatched",
+      "badgeVariant": "success",
+      "description": "Automated CAP-compliant warning payloads & GIS GeoJSON polygons",
+      "footerLeft": "NDMA / IMD Sync",
+      "icon": "send",
+      "status": "dispatched"
+    }
+  ],
+  "connectivity": [
+    { "icon": "sensors", "label": "Ingest (12km)" },
+    { "icon": "grain", "label": "Anomaly Masking" },
+    { "icon": "share", "label": "Graph Trajectory" },
+    { "icon": "model_training", "label": "Latent Sampling" },
+    { "icon": "layers", "label": "Downscaled 5km Grid" },
+    { "icon": "campaign", "label": "Disaster Protocol" }
+  ]
+}
