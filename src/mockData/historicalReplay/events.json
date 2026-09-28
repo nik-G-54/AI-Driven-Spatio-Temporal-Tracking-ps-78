@@ -1,0 +1,34 @@
+[
+  {
+    "id": "amphan-2020",
+    "name": "Amphan",
+    "displayName": "CYCLONE AMPHAN",
+    "dropdownLabel": "Cyclone Amphan (May 2020) - Super Cyclonic Storm",
+    "chipLabel": "CYCLONE AMPHAN (MAY 2020)",
+    "dateLabel": "MAY 2020"
+  },
+  {
+    "id": "heatwave-2022",
+    "name": "North India Heatwave",
+    "displayName": "NORTH INDIA HEATWAVE",
+    "dropdownLabel": "Severe North India Heatwave (May 2022) - Tmax 49.2°C",
+    "chipLabel": "NORTH INDIA HEATWAVE (MAY 2022)",
+    "dateLabel": "MAY 2022"
+  },
+  {
+    "id": "mumbai-2021",
+    "name": "Mumbai Convective Deluge",
+    "displayName": "MUMBAI CONVECTIVE DELUGE",
+    "dropdownLabel": "Mumbai Extreme Convective Deluge (July 2021) - 438mm/24h",
+    "chipLabel": "MUMBAI CONVECTIVE DELUGE (JUL 2021)",
+    "dateLabel": "JUL 2021"
+  },
+  {
+    "id": "biparjoy-2023",
+    "name": "Cyclone Biparjoy",
+    "displayName": "CYCLONE BIPARJOY",
+    "dropdownLabel": "Cyclone Biparjoy (June 2023) - Arabian Sea Stalling",
+    "chipLabel": "CYCLONE BIPARJOY (JUN 2023)",
+    "dateLabel": "JUN 2023"
+  }
+]

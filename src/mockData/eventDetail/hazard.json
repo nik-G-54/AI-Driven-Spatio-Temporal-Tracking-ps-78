@@ -1,0 +1,14 @@
+{
+  "cellId": "C-1284",
+  "sector": "Puri-Chilika Coastal Sector",
+  "riskLevel": "EXTREME RISK",
+  "centroid": { "latitude": 19.8214, "longitude": 85.9124 },
+  "hazardClassification": "Extreme Convective Rain + Surge",
+  "aiPredictedIntensity": { "value": 214.2, "unit": "mm/day" },
+  "nwpComparisonIntensity": { "value": 138.5, "unit": "mm/day", "label": "NWP" },
+  "exceedanceProbability": { "value": 94.2, "unit": "%", "thresholdMmDay": 150 },
+  "ensembleConsensus": { "inTier": 19, "total": 23, "tier": "Severe" },
+  "vulnerabilityExposure": "Coastal Floodplain & Lagoon Buffer",
+  "terrainElevation": { "value": 4.2, "unit": "m AMSL" },
+  "saturatedSoil": { "value": 91.4, "unit": "%" }
+}

@@ -1,0 +1,54 @@
+{
+  "amphan-2020": {
+    "id": "amphan-2020",
+    "name": "Amphan",
+    "mapTitle": "Super Cyclone Amphan",
+    "severityTag": "CAT 5 EQUIV / SUPER CYCLONE",
+    "metaPill": {
+      "gusts": { "value": 260, "unit": "km/h" },
+      "rainfall": { "value": 280, "unit": "mm" },
+      "landfall": "Sundarbans, WB",
+      "trackDurationHours": 120
+    },
+    "synopticAssessment": "Post-event verification proved that the 5 km conditional diffusion model accurately localized the severe rainfall corridor along the Hooghly estuary 36 hours before peak inundation, whereas standard 12 km NWP diluted the peak over open water."
+  },
+  "heatwave-2022": {
+    "id": "heatwave-2022",
+    "name": "North India Heatwave",
+    "mapTitle": "Severe North India Heatwave",
+    "severityTag": "EXTREME HEAT / TMAX 49.2°C",
+    "metaPill": {
+      "gusts": { "value": 45, "unit": "km/h" },
+      "rainfall": { "value": 0, "unit": "mm" },
+      "landfall": "Delhi NCR, IN",
+      "trackDurationHours": 96
+    },
+    "synopticAssessment": "Post-event verification proved that the 5 km conditional diffusion model resolved the urban heat-island amplification over Delhi NCR 24 hours before peak temperature, whereas standard 12 km NWP under-resolved the ridge's local intensification."
+  },
+  "mumbai-2021": {
+    "id": "mumbai-2021",
+    "name": "Mumbai Convective Deluge",
+    "mapTitle": "Mumbai Extreme Convective Deluge",
+    "severityTag": "EXTREME RAINFALL / 438mm/24h",
+    "metaPill": {
+      "gusts": { "value": 75, "unit": "km/h" },
+      "rainfall": { "value": 438, "unit": "mm" },
+      "landfall": "Santacruz, MH",
+      "trackDurationHours": 48
+    },
+    "synopticAssessment": "Post-event verification proved that the 5 km conditional diffusion model accurately localized the mesoscale convective cell over Santacruz 6 hours before peak inundation, whereas standard 12 km NWP smoothed the cell across the wider Mumbai coastline."
+  },
+  "biparjoy-2023": {
+    "id": "biparjoy-2023",
+    "name": "Cyclone Biparjoy",
+    "mapTitle": "Cyclone Biparjoy",
+    "severityTag": "VERY SEVERE CYCLONIC STORM",
+    "metaPill": {
+      "gusts": { "value": 140, "unit": "km/h" },
+      "rainfall": { "value": 184, "unit": "mm" },
+      "landfall": "Jakhau, Kutch, GJ",
+      "trackDurationHours": 168
+    },
+    "synopticAssessment": "Post-event verification proved that the 5 km conditional diffusion model tracked the storm's unusually long Arabian Sea stalling phase 14 hours before landfall, whereas standard 12 km NWP underpredicted the eventual Kutch coast recurvature."
+  }
+}

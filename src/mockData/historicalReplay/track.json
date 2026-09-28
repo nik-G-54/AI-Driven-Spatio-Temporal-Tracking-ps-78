@@ -1,0 +1,122 @@
+{
+  "amphan-2020": {
+    "groundTruth": [
+      { "frameIndex": 0, "latitude": 15.50, "longitude": 89.00, "nodeLabel": "Genesis" },
+      { "frameIndex": 1, "latitude": 17.80, "longitude": 88.70, "nodeLabel": "Rapid Intensification" },
+      { "frameIndex": 2, "latitude": 19.70, "longitude": 88.50, "nodeLabel": "Super Cyclonic Storm" },
+      { "frameIndex": 3, "latitude": 20.90, "longitude": 88.40, "nodeLabel": "Approaching Delta" },
+      { "frameIndex": 4, "latitude": 21.65, "longitude": 88.32, "nodeLabel": "Sundarbans Landfall" },
+      { "frameIndex": 5, "latitude": 22.60, "longitude": 88.10, "nodeLabel": "Inland Dissipation" },
+      { "frameIndex": 6, "latitude": 23.40, "longitude": 87.70, "nodeLabel": "Brahmaputra Basin" }
+    ],
+    "aiTrack": [
+      { "frameIndex": 0, "latitude": 15.55, "longitude": 89.04 },
+      { "frameIndex": 1, "latitude": 17.91, "longitude": 88.79 },
+      { "frameIndex": 2, "latitude": 19.81, "longitude": 88.59 },
+      { "frameIndex": 3, "latitude": 21.01, "longitude": 88.49 },
+      { "frameIndex": 4, "latitude": 21.87, "longitude": 88.49 },
+      { "frameIndex": 5, "latitude": 22.71, "longitude": 88.19 },
+      { "frameIndex": 6, "latitude": 23.45, "longitude": 87.74 }
+    ],
+    "landfallCallout": {
+      "label": "LANDFALL: SUNDARBANS",
+      "timeLabel": "20 MAY, 12:00 UTC",
+      "latitude": 21.65,
+      "longitude": 88.32,
+      "trackErrorKm": 31.4,
+      "aiFloodGridCapturePercent": 97.0
+    },
+    "leadTimeBenchmark": {
+      "trackDivergenceKm": 34,
+      "trackDivergenceAtHour": 48,
+      "earlierSurgeLocalizationHours": 18
+    }
+  },
+  "heatwave-2022": {
+    "groundTruth": [
+      { "frameIndex": 0, "latitude": 27.00, "longitude": 73.50, "nodeLabel": "Ridge Building (Bikaner)" },
+      { "frameIndex": 1, "latitude": 28.00, "longitude": 75.50, "nodeLabel": "Ridge Intensifying (Hisar)" },
+      { "frameIndex": 2, "latitude": 28.70, "longitude": 77.20, "nodeLabel": "Peak Heat (Delhi NCR)" },
+      { "frameIndex": 3, "latitude": 27.50, "longitude": 79.00, "nodeLabel": "Ridge Drifting (Kanpur)" },
+      { "frameIndex": 4, "latitude": 26.80, "longitude": 80.50, "nodeLabel": "Dissipating (Lucknow)" }
+    ],
+    "aiTrack": [
+      { "frameIndex": 0, "latitude": 27.10, "longitude": 73.58 },
+      { "frameIndex": 1, "latitude": 28.10, "longitude": 75.58 },
+      { "frameIndex": 2, "latitude": 28.80, "longitude": 77.28 },
+      { "frameIndex": 3, "latitude": 27.60, "longitude": 79.08 },
+      { "frameIndex": 4, "latitude": 26.90, "longitude": 80.58 }
+    ],
+    "landfallCallout": {
+      "label": "PEAK HEAT: DELHI NCR",
+      "timeLabel": "15 MAY, 12:00 UTC",
+      "latitude": 28.70,
+      "longitude": 77.20,
+      "trackErrorKm": 13.6,
+      "aiFloodGridCapturePercent": 94.0
+    },
+    "leadTimeBenchmark": {
+      "trackDivergenceKm": 15,
+      "trackDivergenceAtHour": 24,
+      "earlierSurgeLocalizationHours": 9
+    }
+  },
+  "mumbai-2021": {
+    "groundTruth": [
+      { "frameIndex": 0, "latitude": 18.85, "longitude": 72.75, "nodeLabel": "Cell Formation (Alibaug)" },
+      { "frameIndex": 1, "latitude": 18.92, "longitude": 72.80, "nodeLabel": "Intensifying (Colaba)" },
+      { "frameIndex": 2, "latitude": 19.05, "longitude": 72.87, "nodeLabel": "Peak Deluge (Santacruz)" },
+      { "frameIndex": 3, "latitude": 19.15, "longitude": 72.90, "nodeLabel": "Drifting NE (Thane Creek)" },
+      { "frameIndex": 4, "latitude": 19.25, "longitude": 72.95, "nodeLabel": "Dissipating (Thane)" }
+    ],
+    "aiTrack": [
+      { "frameIndex": 0, "latitude": 18.87, "longitude": 72.765 },
+      { "frameIndex": 1, "latitude": 18.94, "longitude": 72.815 },
+      { "frameIndex": 2, "latitude": 19.07, "longitude": 72.885 },
+      { "frameIndex": 3, "latitude": 19.17, "longitude": 72.915 },
+      { "frameIndex": 4, "latitude": 19.27, "longitude": 72.965 }
+    ],
+    "landfallCallout": {
+      "label": "PEAK DELUGE: SANTACRUZ",
+      "timeLabel": "18 JUL, 12:00 UTC",
+      "latitude": 19.05,
+      "longitude": 72.87,
+      "trackErrorKm": 2.7,
+      "aiFloodGridCapturePercent": 91.0
+    },
+    "leadTimeBenchmark": {
+      "trackDivergenceKm": 4,
+      "trackDivergenceAtHour": 12,
+      "earlierSurgeLocalizationHours": 6
+    }
+  },
+  "biparjoy-2023": {
+    "groundTruth": [
+      { "frameIndex": 0, "latitude": 19.50, "longitude": 67.50, "nodeLabel": "Deep Depression" },
+      { "frameIndex": 1, "latitude": 20.80, "longitude": 68.00, "nodeLabel": "Very Severe Cyclonic Storm" },
+      { "frameIndex": 2, "latitude": 22.00, "longitude": 68.30, "nodeLabel": "Approaching Kutch" },
+      { "frameIndex": 3, "latitude": 23.05, "longitude": 68.65, "nodeLabel": "Jakhau Landfall" },
+      { "frameIndex": 4, "latitude": 23.80, "longitude": 70.00, "nodeLabel": "Inland Dissipation" }
+    ],
+    "aiTrack": [
+      { "frameIndex": 0, "latitude": 19.68, "longitude": 67.64 },
+      { "frameIndex": 1, "latitude": 20.98, "longitude": 68.14 },
+      { "frameIndex": 2, "latitude": 22.18, "longitude": 68.44 },
+      { "frameIndex": 3, "latitude": 23.23, "longitude": 68.79 },
+      { "frameIndex": 4, "latitude": 23.98, "longitude": 70.14 }
+    ],
+    "landfallCallout": {
+      "label": "LANDFALL: JAKHAU, KUTCH",
+      "timeLabel": "15 JUN, 18:00 UTC",
+      "latitude": 23.05,
+      "longitude": 68.65,
+      "trackErrorKm": 24.6,
+      "aiFloodGridCapturePercent": 95.0
+    },
+    "leadTimeBenchmark": {
+      "trackDivergenceKm": 27,
+      "trackDivergenceAtHour": 48,
+      "earlierSurgeLocalizationHours": 14
+    }
+  }
+}

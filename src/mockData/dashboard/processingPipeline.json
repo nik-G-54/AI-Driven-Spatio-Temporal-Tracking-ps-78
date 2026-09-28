@@ -1,0 +1,45 @@
+{
+  "badge": "DEMO / SIMULATION",
+  "stages": [
+    {
+      "stage": 1,
+      "title": "NWP INPUT (NEPS-G 12km)",
+      "description": "GRIB2 payload (50 ensemble members)",
+      "status": "ready",
+      "statusLabel": "READY / INGESTED (00 UTC)"
+    },
+    {
+      "stage": 2,
+      "title": "EXTREME ANOMALY DETECTION",
+      "description": "99th percentile climatology exceedance",
+      "status": "complete",
+      "statusLabel": "COMPLETE (4 Anomalies)"
+    },
+    {
+      "stage": 3,
+      "title": "SPATIO-TEMPORAL TRACKING",
+      "description": "Graph neural network centroid linking",
+      "status": "complete",
+      "statusLabel": "COMPLETE (GNN Track Fitted)"
+    },
+    {
+      "stage": 4,
+      "title": "AI DOWNSCALING (5km)",
+      "description": "Latent diffusion model over BOB-02",
+      "status": "complete",
+      "statusLabel": "COMPLETE (126 High-Risk Cells)"
+    },
+    {
+      "stage": 5,
+      "title": "LOCALIZED RISK & ALERT",
+      "description": "Common Alerting Protocol (CAP) payload",
+      "status": "dispatched",
+      "statusLabel": "DISPATCHED (CAP JSON Emitted)"
+    }
+  ],
+  "execution": {
+    "latency": { "value": 4.2, "unit": "s" },
+    "tile": "500x500 km",
+    "inferenceNode": "H100-SXM5-04"
+  }
+}

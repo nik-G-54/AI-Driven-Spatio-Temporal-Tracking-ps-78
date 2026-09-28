@@ -1,0 +1,42 @@
+{
+  "BOB-02": {
+    "selectedIndex": 4,
+    "stepLabel": "12h",
+    "ensembleMembers": 42,
+    "cacheLoadedPercent": 75,
+    "steps": [
+      { "leadHour": 0, "label": "T+00h", "validTime": "27 SEP 2026, 00:00 UTC", "progress": 5 },
+      { "leadHour": 12, "label": "T+12h", "validTime": "27 SEP 2026, 12:00 UTC", "progress": 18 },
+      { "leadHour": 24, "label": "T+24h", "validTime": "28 SEP 2026, 00:00 UTC", "progress": 30 },
+      { "leadHour": 36, "label": "T+36h", "validTime": "28 SEP 2026, 12:00 UTC", "progress": 42 },
+      { "leadHour": 48, "label": "T+48h", "validTime": "29 SEP 2026, 00:00 UTC", "progress": 55 },
+      { "leadHour": 72, "label": "T+72h", "validTime": "30 SEP 2026, 00:00 UTC", "progress": 70 },
+      { "leadHour": 96, "label": "T+96h", "validTime": "01 OCT 2026, 00:00 UTC", "progress": 85 },
+      { "leadHour": 120, "label": "T+120h", "validTime": "02 OCT 2026, 00:00 UTC", "progress": 100 }
+    ]
+  },
+  "AS-01": {
+    "selectedIndex": 3,
+    "stepLabel": "12h",
+    "ensembleMembers": 36,
+    "cacheLoadedPercent": 60,
+    "steps": [
+      { "leadHour": 0, "label": "T+00h", "validTime": "28 SEP 2026, 12:00 UTC", "progress": 8 },
+      { "leadHour": 12, "label": "T+12h", "validTime": "29 SEP 2026, 00:00 UTC", "progress": 28 },
+      { "leadHour": 24, "label": "T+24h", "validTime": "29 SEP 2026, 12:00 UTC", "progress": 55 },
+      { "leadHour": 36, "label": "T+36h", "validTime": "30 SEP 2026, 00:00 UTC", "progress": 80 },
+      { "leadHour": 48, "label": "T+48h", "validTime": "30 SEP 2026, 12:00 UTC", "progress": 100 }
+    ]
+  },
+  "NE-04": {
+    "selectedIndex": 1,
+    "stepLabel": "12h",
+    "ensembleMembers": 28,
+    "cacheLoadedPercent": 90,
+    "steps": [
+      { "leadHour": 0, "label": "T+00h", "validTime": "29 SEP 2026, 00:00 UTC", "progress": 15 },
+      { "leadHour": 12, "label": "T+12h", "validTime": "29 SEP 2026, 12:00 UTC", "progress": 55 },
+      { "leadHour": 24, "label": "T+24h", "validTime": "30 SEP 2026, 00:00 UTC", "progress": 100 }
+    ]
+  }
+}

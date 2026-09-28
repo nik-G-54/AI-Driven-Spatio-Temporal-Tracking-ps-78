@@ -1,0 +1,44 @@
+{
+  "amphan-2020": {
+    "defaultFrameIndex": 4,
+    "frames": [
+      { "index": 0, "leadLabel": "T-72h", "dateLabel": "17 MAY 12Z", "displayLabel": "17 MAY 2020 12:00 UTC", "isLandfall": false, "pressureHpa": 998, "rainfallMmDay": 15 },
+      { "index": 1, "leadLabel": "T-48h", "dateLabel": "18 MAY 12Z", "displayLabel": "18 MAY 2020 12:00 UTC", "isLandfall": false, "pressureHpa": 976, "rainfallMmDay": 45 },
+      { "index": 2, "leadLabel": "T-24h", "dateLabel": "19 MAY 12Z", "displayLabel": "19 MAY 2020 12:00 UTC", "isLandfall": false, "pressureHpa": 907, "rainfallMmDay": 120 },
+      { "index": 3, "leadLabel": "T-12h", "dateLabel": "20 MAY 00Z", "displayLabel": "20 MAY 2020 00:00 UTC", "isLandfall": false, "pressureHpa": 918, "rainfallMmDay": 180 },
+      { "index": 4, "leadLabel": "LANDFALL PEAK", "dateLabel": "20 MAY 12Z", "displayLabel": "20 MAY 2020 12:00 UTC", "isLandfall": true, "pressureHpa": 925, "rainfallMmDay": 245 },
+      { "index": 5, "leadLabel": "T+12h", "dateLabel": "21 MAY 00Z", "displayLabel": "21 MAY 2020 00:00 UTC", "isLandfall": false, "pressureHpa": 955, "rainfallMmDay": 90 },
+      { "index": 6, "leadLabel": "T+24h", "dateLabel": "21 MAY 12Z", "displayLabel": "21 MAY 2020 12:00 UTC", "isLandfall": false, "pressureHpa": 985, "rainfallMmDay": 25 }
+    ]
+  },
+  "heatwave-2022": {
+    "defaultFrameIndex": 2,
+    "frames": [
+      { "index": 0, "leadLabel": "T-48h", "dateLabel": "13 MAY 12Z", "displayLabel": "13 MAY 2022 12:00 UTC", "isLandfall": false, "pressureHpa": 1006, "rainfallMmDay": 0 },
+      { "index": 1, "leadLabel": "T-24h", "dateLabel": "14 MAY 12Z", "displayLabel": "14 MAY 2022 12:00 UTC", "isLandfall": false, "pressureHpa": 1004, "rainfallMmDay": 0 },
+      { "index": 2, "leadLabel": "PEAK HEAT", "dateLabel": "15 MAY 12Z", "displayLabel": "15 MAY 2022 12:00 UTC", "isLandfall": true, "pressureHpa": 1002, "rainfallMmDay": 0 },
+      { "index": 3, "leadLabel": "T+24h", "dateLabel": "16 MAY 12Z", "displayLabel": "16 MAY 2022 12:00 UTC", "isLandfall": false, "pressureHpa": 1003, "rainfallMmDay": 0 },
+      { "index": 4, "leadLabel": "T+48h", "dateLabel": "17 MAY 12Z", "displayLabel": "17 MAY 2022 12:00 UTC", "isLandfall": false, "pressureHpa": 1005, "rainfallMmDay": 0 }
+    ]
+  },
+  "mumbai-2021": {
+    "defaultFrameIndex": 2,
+    "frames": [
+      { "index": 0, "leadLabel": "T-24h", "dateLabel": "17 JUL 12Z", "displayLabel": "17 JUL 2021 12:00 UTC", "isLandfall": false, "pressureHpa": 1002, "rainfallMmDay": 60 },
+      { "index": 1, "leadLabel": "T-12h", "dateLabel": "18 JUL 00Z", "displayLabel": "18 JUL 2021 00:00 UTC", "isLandfall": false, "pressureHpa": 999, "rainfallMmDay": 150 },
+      { "index": 2, "leadLabel": "PEAK DELUGE", "dateLabel": "18 JUL 12Z", "displayLabel": "18 JUL 2021 12:00 UTC", "isLandfall": true, "pressureHpa": 996, "rainfallMmDay": 438 },
+      { "index": 3, "leadLabel": "T+12h", "dateLabel": "19 JUL 00Z", "displayLabel": "19 JUL 2021 00:00 UTC", "isLandfall": false, "pressureHpa": 999, "rainfallMmDay": 95 },
+      { "index": 4, "leadLabel": "T+24h", "dateLabel": "19 JUL 12Z", "displayLabel": "19 JUL 2021 12:00 UTC", "isLandfall": false, "pressureHpa": 1001, "rainfallMmDay": 30 }
+    ]
+  },
+  "biparjoy-2023": {
+    "defaultFrameIndex": 3,
+    "frames": [
+      { "index": 0, "leadLabel": "T-48h", "dateLabel": "13 JUN 12Z", "displayLabel": "13 JUN 2023 12:00 UTC", "isLandfall": false, "pressureHpa": 984, "rainfallMmDay": 40 },
+      { "index": 1, "leadLabel": "T-24h", "dateLabel": "14 JUN 12Z", "displayLabel": "14 JUN 2023 12:00 UTC", "isLandfall": false, "pressureHpa": 972, "rainfallMmDay": 70 },
+      { "index": 2, "leadLabel": "T-12h", "dateLabel": "15 JUN 00Z", "displayLabel": "15 JUN 2023 00:00 UTC", "isLandfall": false, "pressureHpa": 968, "rainfallMmDay": 110 },
+      { "index": 3, "leadLabel": "LANDFALL PEAK", "dateLabel": "15 JUN 18Z", "displayLabel": "15 JUN 2023 18:00 UTC", "isLandfall": true, "pressureHpa": 970, "rainfallMmDay": 184 },
+      { "index": 4, "leadLabel": "T+24h", "dateLabel": "16 JUN 18Z", "displayLabel": "16 JUN 2023 18:00 UTC", "isLandfall": false, "pressureHpa": 985, "rainfallMmDay": 55 }
+    ]
+  }
+}

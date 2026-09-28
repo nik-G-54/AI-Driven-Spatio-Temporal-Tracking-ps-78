@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "day": 0,
+      "leadHour": 0,
+      "label": "DAY 0",
+      "leadLabel": "T+00h",
+      "window": {
+        "description": "Storm Formation / Initial Vortex",
+        "downscaledRiskCells": 12,
+        "ensembleAgreement": 64
+      }
+    },
+    {
+      "day": 1,
+      "leadHour": 24,
+      "label": "DAY 1",
+      "leadLabel": "T+24h",
+      "window": {
+        "description": "Intensification Phase",
+        "downscaledRiskCells": 58,
+        "ensembleAgreement": 74
+      }
+    },
+    {
+      "day": 2,
+      "leadHour": 48,
+      "label": "DAY 2",
+      "leadLabel": "T+48h",
+      "window": {
+        "description": "Peak Anomaly Intensity",
+        "downscaledRiskCells": 126,
+        "ensembleAgreement": 86
+      }
+    },
+    {
+      "day": 3,
+      "leadHour": 72,
+      "label": "DAY 3",
+      "leadLabel": "T+72h",
+      "window": {
+        "description": "Landfall Incursion",
+        "downscaledRiskCells": 104,
+        "ensembleAgreement": 81
+      }
+    },
+    {
+      "day": 4,
+      "leadHour": 96,
+      "label": "DAY 4",
+      "leadLabel": "T+96h",
+      "window": {
+        "description": "Post-Landfall Weakening",
+        "downscaledRiskCells": 61,
+        "ensembleAgreement": 72
+      }
+    },
+    {
+      "day": 5,
+      "leadHour": 120,
+      "label": "DAY 5",
+      "leadLabel": "T+120h",
+      "window": {
+        "description": "Inland Dissipation",
+        "downscaledRiskCells": 27,
+        "ensembleAgreement": 65
+      }
+    },
+    {
+      "day": 6,
+      "leadHour": 144,
+      "label": "DAY 6",
+      "leadLabel": "T+144h",
+      "window": {
+        "description": "Residual Moisture Plume",
+        "downscaledRiskCells": 9,
+        "ensembleAgreement": 58
+      }
+    },
+    {
+      "day": 7,
+      "leadHour": 168,
+      "label": "DAY 7",
+      "leadLabel": "T+168h",
+      "window": {
+        "description": "System Dissipated",
+        "downscaledRiskCells": 2,
+        "ensembleAgreement": 52
+      }
+    }
+  ],
+  "selectedStepIndex": 2
+}

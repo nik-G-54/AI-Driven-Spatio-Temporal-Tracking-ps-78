@@ -1,0 +1,18 @@
+{
+  "status": "DISPATCH READY",
+  "payload": {
+    "event_id": "CYC-2026-BOB-02",
+    "hazard": "extreme_precipitation",
+    "severity": "SEVERE",
+    "lead_time_hours": 48,
+    "valid_utc": "2026-09-29T00:00:00Z",
+    "centroid": { "lat": 19.8214, "lon": 85.9124 },
+    "peak_intensity_mm_day": 214.2,
+    "impact_radius_km": 28.5,
+    "high_risk_cells_5km": 126,
+    "downscaling_model": "ConditionalDiffusion-v2.1",
+    "status": "OPERATIONAL_WARNING"
+  },
+  "modelRunId": "#DIFF-5K-9982",
+  "cycleLabel": "NEPS-G Control Run Cycle 00 UTC"
+}

@@ -1,0 +1,89 @@
+{
+  "BOB-02": {
+    "id": "BOB-02",
+    "trackId": "BOB-02-2026",
+    "name": "CYCLONIC ANOMALY BOB-02",
+    "displayName": "CYCLONIC ANOMALY (BOB-02)",
+    "type": "Tropical Cyclonic Depression",
+    "classification": "Tropical Cyclonic Depression / High-Precipitation Vortex",
+    "severity": "SEVERE",
+    "currentPosition": { "latitude": 16.42, "longitude": 88.19 },
+    "centralPressure": { "value": 988, "unit": "hPa" },
+    "intensity": { "peakRainfall": 214, "rainfallUnit": "mm/day", "maxWind": 115, "windUnit": "km/h" },
+    "forecast": { "leadHours": 48, "landfallEta": "29 SEP 2026, 06:00 UTC" },
+    "trackConfidence": 88.4,
+    "model": { "name": "NEPS-G", "cycle": "00 UTC", "resolution": "12 km" },
+    "landfall": {
+      "latitude": 19.82,
+      "longitude": 86.44,
+      "sector": "Paradip Sector",
+      "eta": "29 SEP 06:00 UTC",
+      "peakWind": 115,
+      "maxRain": 214
+    },
+    "mapMetadata": {
+      "domain": { "minLat": 12.0, "maxLat": 22.0, "minLon": 82.0, "maxLon": 92.0 },
+      "domainLabel": "12.0°N–22.0°N, 82.0°E–92.0°E",
+      "projection": "MERCATOR_WGS84",
+      "resolution": "5KM²"
+    }
+  },
+  "AS-01": {
+    "id": "AS-01",
+    "trackId": "AS-01-2026",
+    "name": "MONSOON DEPRESSION AS-01",
+    "displayName": "MONSOON DEPRESSION (AS-01)",
+    "type": "Monsoon Low-Pressure System",
+    "classification": "Monsoon Depression / Broad Moisture Vortex",
+    "severity": "ADVISORY",
+    "currentPosition": { "latitude": 14.5, "longitude": 84.0 },
+    "centralPressure": { "value": 1000, "unit": "hPa" },
+    "intensity": { "peakRainfall": 95, "rainfallUnit": "mm/day", "maxWind": 50, "windUnit": "km/h" },
+    "forecast": { "leadHours": 36, "landfallEta": "29 SEP 2026, 12:00 UTC" },
+    "trackConfidence": 71.2,
+    "model": { "name": "NEPS-G", "cycle": "00 UTC", "resolution": "12 km" },
+    "landfall": {
+      "latitude": 16.1,
+      "longitude": 82.6,
+      "sector": "Kakinada Sector",
+      "eta": "29 SEP 12:00 UTC",
+      "peakWind": 50,
+      "maxRain": 95
+    },
+    "mapMetadata": {
+      "domain": { "minLat": 12.0, "maxLat": 22.0, "minLon": 82.0, "maxLon": 92.0 },
+      "domainLabel": "12.0°N–22.0°N, 82.0°E–92.0°E",
+      "projection": "MERCATOR_WGS84",
+      "resolution": "5KM²"
+    }
+  },
+  "NE-04": {
+    "id": "NE-04",
+    "trackId": "NE-04-2026",
+    "name": "DEEP CONVECTIVE PLUME NE-04",
+    "displayName": "DEEP CONVECTIVE PLUME (NE-04)",
+    "type": "Deep Convective Cluster",
+    "classification": "Mesoscale Convective Cluster / Pre-Monsoon Plume",
+    "severity": "WATCH",
+    "currentPosition": { "latitude": 20.8, "longitude": 90.5 },
+    "centralPressure": { "value": 1004, "unit": "hPa" },
+    "intensity": { "peakRainfall": 68, "rainfallUnit": "mm/day", "maxWind": 40, "windUnit": "km/h" },
+    "forecast": { "leadHours": 12, "landfallEta": "28 SEP 2026, 00:00 UTC" },
+    "trackConfidence": 63.5,
+    "model": { "name": "NEPS-G", "cycle": "00 UTC", "resolution": "12 km" },
+    "landfall": {
+      "latitude": 21.0,
+      "longitude": 90.2,
+      "sector": "Sundarbans Fringe",
+      "eta": "28 SEP 00:00 UTC",
+      "peakWind": 40,
+      "maxRain": 68
+    },
+    "mapMetadata": {
+      "domain": { "minLat": 12.0, "maxLat": 22.0, "minLon": 82.0, "maxLon": 92.0 },
+      "domainLabel": "12.0°N–22.0°N, 82.0°E–92.0°E",
+      "projection": "MERCATOR_WGS84",
+      "resolution": "5KM²"
+    }
+  }
+}

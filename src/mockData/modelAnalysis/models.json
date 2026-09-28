@@ -1,0 +1,9 @@
+{
+  "defaultModelId": "conditional-diffusion-st-gnn",
+  "options": [
+    { "id": "conditional-diffusion-st-gnn", "name": "ConditionalDiffusion-v2.1 + ST-GNN" },
+    { "id": "st-gnn-v1.4", "name": "ST-GNN-v1.4 (Centroid Trajectory Only)" },
+    { "id": "diffusion-baseline", "name": "Diffusion-Baseline (Pure Statistical Super-Res)" },
+    { "id": "raw-neps-g", "name": "Raw NEPS-G Baseline (No Downscaling)" }
+  ]
+}

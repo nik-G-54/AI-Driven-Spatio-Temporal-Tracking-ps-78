@@ -1,0 +1,32 @@
+{
+  "BOB-02": {
+    "ensembleMembers": 42,
+    "distribution": [
+      { "label": "Depression", "percentage": 15 },
+      { "label": "Deep Depression", "percentage": 25 },
+      { "label": "Cyclonic Storm", "percentage": 48, "isModal": true },
+      { "label": "Severe CS", "percentage": 10 },
+      { "label": "Dissipated", "percentage": 2 }
+    ]
+  },
+  "AS-01": {
+    "ensembleMembers": 36,
+    "distribution": [
+      { "label": "Depression", "percentage": 42, "isModal": true },
+      { "label": "Deep Depression", "percentage": 33 },
+      { "label": "Cyclonic Storm", "percentage": 15 },
+      { "label": "Severe CS", "percentage": 5 },
+      { "label": "Dissipated", "percentage": 5 }
+    ]
+  },
+  "NE-04": {
+    "ensembleMembers": 28,
+    "distribution": [
+      { "label": "Depression", "percentage": 55, "isModal": true },
+      { "label": "Deep Depression", "percentage": 20 },
+      { "label": "Cyclonic Storm", "percentage": 5 },
+      { "label": "Severe CS", "percentage": 0 },
+      { "label": "Dissipated", "percentage": 20 }
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "amphan-2020": {
+    "frames": [
+      {
+        "frameIndex": 4,
+        "center": { "latitude": 21.65, "longitude": 88.32 },
+        "surgePeak": { "value": 4.8, "unit": "m" },
+        "cells": [
+          { "col": 0, "row": 0, "intensity": 0.30 },
+          { "col": 1, "row": 0, "intensity": 0.50 },
+          { "col": 2, "row": 0, "intensity": 0.70 },
+          { "col": 3, "row": 0, "intensity": 0.40 },
+          { "col": 0, "row": 1, "intensity": 0.50 },
+          { "col": 1, "row": 1, "intensity": 0.90 },
+          { "col": 2, "row": 1, "intensity": 0.80 },
+          { "col": 3, "row": 1, "intensity": 0.60 },
+          { "col": 4, "row": 1, "intensity": 0.30 },
+          { "col": 1, "row": 2, "intensity": 0.75 },
+          { "col": 2, "row": 2, "intensity": 0.85 },
+          { "col": 3, "row": 2, "intensity": 0.50 },
+          { "col": 4, "row": 2, "intensity": 0.20 }
+        ]
+      }
+    ]
+  },
+  "heatwave-2022": {
+    "frames": [
+      {
+        "frameIndex": 2,
+        "center": { "latitude": 28.70, "longitude": 77.20 },
+        "surgePeak": { "value": 49.2, "unit": "°C" },
+        "cells": [
+          { "col": 0, "row": 0, "intensity": 0.40 },
+          { "col": 1, "row": 0, "intensity": 0.65 },
+          { "col": 2, "row": 0, "intensity": 0.45 },
+          { "col": 0, "row": 1, "intensity": 0.60 },
+          { "col": 1, "row": 1, "intensity": 0.95 },
+          { "col": 2, "row": 1, "intensity": 0.55 },
+          { "col": 0, "row": 2, "intensity": 0.35 },
+          { "col": 1, "row": 2, "intensity": 0.50 },
+          { "col": 2, "row": 2, "intensity": 0.30 }
+        ]
+      }
+    ]
+  },
+  "mumbai-2021": {
+    "frames": [
+      {
+        "frameIndex": 2,
+        "center": { "latitude": 19.05, "longitude": 72.87 },
+        "surgePeak": { "value": 1.1, "unit": "m" },
+        "cells": [
+          { "col": 0, "row": 0, "intensity": 0.35 },
+          { "col": 1, "row": 0, "intensity": 0.60 },
+          { "col": 2, "row": 0, "intensity": 0.40 },
+          { "col": 0, "row": 1, "intensity": 0.55 },
+          { "col": 1, "row": 1, "intensity": 0.92 },
+          { "col": 2, "row": 1, "intensity": 0.70 },
+          { "col": 0, "row": 2, "intensity": 0.30 },
+          { "col": 1, "row": 2, "intensity": 0.65 },
+          { "col": 2, "row": 2, "intensity": 0.45 }
+        ]
+      }
+    ]
+  },
+  "biparjoy-2023": {
+    "frames": [
+      {
+        "frameIndex": 3,
+        "center": { "latitude": 23.05, "longitude": 68.65 },
+        "surgePeak": { "value": 3.2, "unit": "m" },
+        "cells": [
+          { "col": 0, "row": 0, "intensity": 0.35 },
+          { "col": 1, "row": 0, "intensity": 0.55 },
+          { "col": 2, "row": 0, "intensity": 0.65 },
+          { "col": 3, "row": 0, "intensity": 0.35 },
+          { "col": 0, "row": 1, "intensity": 0.45 },
+          { "col": 1, "row": 1, "intensity": 0.85 },
+          { "col": 2, "row": 1, "intensity": 0.75 },
+          { "col": 3, "row": 1, "intensity": 0.50 },
+          { "col": 1, "row": 2, "intensity": 0.60 },
+          { "col": 2, "row": 2, "intensity": 0.55 }
+        ]
+      }
+    ]
+  }
+}

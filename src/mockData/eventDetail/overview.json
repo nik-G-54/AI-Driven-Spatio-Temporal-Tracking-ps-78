@@ -1,0 +1,13 @@
+{
+  "targetDomain": "Puri-Chilika Coastal Sector",
+  "projection": "EPSG:4326",
+  "validLeadTimeHours": 48,
+  "validTimestampLabel": "29 SEP 2026 00 UTC",
+  "precipitationScale": [
+    { "label": "<50", "variant": "neutral" },
+    { "label": "50-100", "variant": "info" },
+    { "label": "100-150", "variant": "neutralStrong" },
+    { "label": "150-200", "variant": "danger" },
+    { "label": ">200", "variant": "dangerSolid" }
+  ]
+}

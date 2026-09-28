@@ -1,0 +1,15 @@
+{
+  "BOB-02": [
+    { "location": "Jagatsinghpur & Kendrapara", "hazard": "EXTREME FLOOD", "severity": "extreme" },
+    { "location": "Puri Coastal Embankments", "hazard": "STORM SURGE 1.8M", "severity": "high" },
+    { "location": "Bhadrak District", "hazard": "WIND GUSTS >90KPH", "severity": "moderate" }
+  ],
+  "AS-01": [
+    { "location": "Konkan Coastal Belt", "hazard": "HEAVY RAINFALL", "severity": "moderate" },
+    { "location": "Godavari Delta Basins", "hazard": "RIVERINE FLOODING RISK", "severity": "moderate" }
+  ],
+  "NE-04": [
+    { "location": "Sundarbans Delta Islands", "hazard": "FLASH FLOOD WATCH", "severity": "low" },
+    { "location": "Kolkata Metro Drainage", "hazard": "LOCALIZED WATERLOGGING", "severity": "low" }
+  ]
+}

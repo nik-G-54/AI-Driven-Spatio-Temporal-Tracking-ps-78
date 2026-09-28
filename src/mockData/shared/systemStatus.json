@@ -1,0 +1,29 @@
+{
+  "branding": {
+    "title": "EXTREME WEATHER",
+    "subtitle": "INTELLIGENCE",
+    "mode": "SIMULATION / DEMO"
+  },
+  "navBadges": {
+    "eventMonitorSevereCount": 1,
+    "eventDetailsThroughput": "12k→5k",
+    "dataSourcesTag": "NEPS/NCUM"
+  },
+  "pipeline": {
+    "name": "NEPS-G Pipeline",
+    "status": "ACTIVE",
+    "cycle": "00 UTC",
+    "latencyMs": 142
+  },
+  "header": {
+    "title": "EXTREME WEATHER INTELLIGENCE",
+    "subtitle": "Meteorological Operations & Downscaling Workstation",
+    "cycleLabel": "27 SEP 2026 • 00 UTC",
+    "model": "NEPS-G (12km) → AI Diffusion (5km)",
+    "runStatus": "OPERATIONAL RUN",
+    "systemReady": true,
+    "onlineNodes": "5/5",
+    "webhookStatus": "Active",
+    "horizon": "10D"
+  }
+}

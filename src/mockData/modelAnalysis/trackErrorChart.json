@@ -1,0 +1,37 @@
+{
+  "xAxis": { "min": 0, "max": 72, "unit": "h" },
+  "yAxis": { "min": 0, "max": 100, "unit": "km", "gridLines": [0, 30, 60, 100] },
+  "highlightLeadHour": 48,
+  "series": [
+    {
+      "id": "nwp",
+      "label": "NWP",
+      "variant": "neutral",
+      "points": [
+        { "leadHour": 0, "errorKm": 5 },
+        { "leadHour": 24, "errorKm": 35 },
+        { "leadHour": 48, "errorKm": 68.4 },
+        { "leadHour": 72, "errorKm": 96 }
+      ]
+    },
+    {
+      "id": "st-gnn",
+      "label": "ST-GNN",
+      "variant": "primary",
+      "points": [
+        { "leadHour": 0, "errorKm": 4 },
+        { "leadHour": 24, "errorKm": 20 },
+        { "leadHour": 48, "errorKm": 42.8 },
+        { "leadHour": 72, "errorKm": 60 }
+      ]
+    }
+  ],
+  "moistureMassLossResidual": {
+    "value": 1.8,
+    "unit": "%",
+    "thresholdOperator": "≤",
+    "threshold": 2.0,
+    "status": "passed",
+    "statusLabel": "PASSED"
+  }
+}

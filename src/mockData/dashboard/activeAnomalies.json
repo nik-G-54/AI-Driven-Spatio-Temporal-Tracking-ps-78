@@ -1,0 +1,58 @@
+[
+  {
+    "id": "BOB-02",
+    "name": "CYCLONIC ANOMALY",
+    "type": "cyclonic",
+    "region": "Bay of Bengal",
+    "coordinates": { "latitude": 16.4, "longitude": 88.2 },
+    "destination": "Coastal Odisha",
+    "severity": "SEVERE",
+    "peakRainfall": { "value": 214, "unit": "mm/day" },
+    "maxWind": { "value": 115, "unit": "km/h" },
+    "leadTime": "T+48h",
+    "landfallEta": "29 Sep 06 UTC",
+    "status": "ACTIVE SATELLITE RADAR LOCK"
+  },
+  {
+    "id": "ARB-01",
+    "name": "ARABIAN SEA DEEP CONVECTION",
+    "type": "convective",
+    "region": "West Arabian Sea",
+    "coordinates": { "latitude": 13.6, "longitude": 78.4 },
+    "destination": null,
+    "severity": "HIGH",
+    "peakRainfall": { "value": 142, "unit": "mm/day" },
+    "maxWind": null,
+    "leadTime": "T+72h",
+    "landfallEta": null,
+    "status": null
+  },
+  {
+    "id": "EGH-01",
+    "name": "EASTERN GHATS OROGRAPHIC RAIN",
+    "type": "orographic",
+    "region": "Andhra-Odisha Border Escarpment",
+    "coordinates": { "latitude": 18.0, "longitude": 83.5 },
+    "destination": null,
+    "severity": "MODERATE",
+    "peakRainfall": { "value": 95, "unit": "mm/day" },
+    "maxWind": null,
+    "leadTime": "T+24h",
+    "landfallEta": null,
+    "status": null
+  },
+  {
+    "id": "ASM-01",
+    "name": "ASSAM VALLEY MOISTURE SURGE",
+    "type": "moisture-surge",
+    "region": "Brahmaputra Basin Lowlands",
+    "coordinates": { "latitude": 24.5, "longitude": 93.5 },
+    "destination": null,
+    "severity": "MODERATE",
+    "peakRainfall": { "value": 88, "unit": "mm/day" },
+    "maxWind": null,
+    "leadTime": "T+36h",
+    "landfallEta": null,
+    "status": null
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "activeAnomalies": {
+    "value": 4,
+    "breakdown": "3 Cyclonic / 1 Convective",
+    "description": "Currently tracked in NEPS-G"
+  },
+  "severeEvents": {
+    "value": 1,
+    "context": "Bay of Bengal (AL-02)",
+    "description": "Current forecast window (T+48h)"
+  },
+  "highRiskCells": {
+    "value": 126,
+    "delta": "+18 in last run",
+    "description": "Across 5 km localized grids"
+  },
+  "forecastHorizon": {
+    "value": 10,
+    "unit": "DAYS",
+    "leadLabel": "00 UTC - 240h Lead",
+    "description": "Medium-range global window"
+  }
+}

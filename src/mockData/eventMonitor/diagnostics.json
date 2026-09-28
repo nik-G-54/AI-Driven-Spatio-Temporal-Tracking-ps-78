@@ -1,0 +1,26 @@
+{
+  "BOB-02": {
+    "affected5kmCells": { "value": 126, "extremeZoneCount": 38 },
+    "maxGustForecast": { "value": 125, "unit": "km/h" },
+    "nwpModelInput": { "model": "NEPS-G", "cycle": "00 UTC", "resolution": "12 km" },
+    "spatioTemporalGnn": { "node": "Trajectory Node #4", "inferenceTimeMs": 18 },
+    "oceanThermalEnergy": { "value": 92, "unit": "kJ/cm²", "comparator": ">" },
+    "simulationNote": "Synthetic event modeled after Bay of Bengal post-monsoon cyclogenesis. Neural diffusion downscaling calibrated against historic IMD Doppler radar ground truth."
+  },
+  "AS-01": {
+    "affected5kmCells": { "value": 42, "extremeZoneCount": 6 },
+    "maxGustForecast": { "value": 65, "unit": "km/h" },
+    "nwpModelInput": { "model": "NEPS-G", "cycle": "00 UTC", "resolution": "12 km" },
+    "spatioTemporalGnn": { "node": "Trajectory Node #2", "inferenceTimeMs": 14 },
+    "oceanThermalEnergy": { "value": 58, "unit": "kJ/cm²", "comparator": ">" },
+    "simulationNote": "Synthetic monsoon depression modeled after typical west-coast onset vortices. Downscaling calibrated against IMD radar climatology."
+  },
+  "NE-04": {
+    "affected5kmCells": { "value": 18, "extremeZoneCount": 2 },
+    "maxGustForecast": { "value": 48, "unit": "km/h" },
+    "nwpModelInput": { "model": "NEPS-G", "cycle": "00 UTC", "resolution": "12 km" },
+    "spatioTemporalGnn": { "node": "Trajectory Node #1", "inferenceTimeMs": 11 },
+    "oceanThermalEnergy": { "value": 40, "unit": "kJ/cm²", "comparator": ">" },
+    "simulationNote": "Synthetic convective cluster modeled after pre-monsoon thunderstorm complexes over the Sundarbans fringe."
+  }
+}

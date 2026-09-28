@@ -1,0 +1,43 @@
+{
+  "eventContext": "CYCLONE ASANI (T+36H)",
+  "images": [
+    {
+      "id": "baseline",
+      "label": "Baseline 12 km",
+      "badgeVariant": "neutral",
+      "peakValue": 142,
+      "peakUnit": "mm/d",
+      "caption": "Raw NWP (Over-smoothed)",
+      "highlighted": false,
+      "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBjnaDNJEUmBabFFEjNmXdV9a51qdMpzOoLfk3mkrI_eyCCjD5tXXgDTEqi2fmlXQ3G6yxFkTWXOEjqScS2nPO1AhILzdexZMIadh1avlydx3uzMkrQgOHLzscT4eWiyeHelu8_5KdCk8j8IACWtSxxy56jI8Lb25nO-DcLwpGgXg9vm3tWQPRJXD4zJXsCNLHb92ARps9Owxj_rq3bwIs8Es5Ti5jfJyXsPRDpvsqq5a03ko30gfns",
+      "altText": "Meteorological radar reflectivity map showing blurred, coarse 12km gridded precipitation fields of a tropical cyclone vortex over the Bay of Bengal"
+    },
+    {
+      "id": "ai5km",
+      "label": "AI 5 km (Ours)",
+      "badgeVariant": "primary",
+      "peakValue": 214,
+      "peakUnit": "mm/d",
+      "caption": "Diffusion Super-Res",
+      "highlighted": true,
+      "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuA3E9Vq1jSBml_wPM2wHjiw_5N2VHLl7qD-OMO_5S41zcJb-Oj1mCYWzAHZgaJdRhzbHsJVyQZVKofaEctaQS692-ez738fPFpIiePmqZksyBYzTQA-a9bNp-juIGpdf5LQQJ0TyWf9soqIsirld9nhJ_6eZeL9PXUNajLdYHPibGKfFbFlcOt8XHtASNY-CrmwIaX7JTt2JMAXI7wo8_wCf6FyDaFnFg4HnW-rZvTMik5GUBFX72_v",
+      "altText": "High resolution generative atmospheric super-resolution precipitation map showing sharp convective rain bands at 5km resolution"
+    },
+    {
+      "id": "radar",
+      "label": "Radar Observation",
+      "badgeVariant": "neutralStrong",
+      "peakValue": 226,
+      "peakUnit": "mm/d",
+      "caption": "IMD Doppler Truth",
+      "highlighted": false,
+      "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuAjgUmE17edKPMThlWIQ579OE-L6Q9owyC2wzaILXAr1tyBujX06pqUGA-K8i3tsL-9Q5-qlHubaAJOr2jimmWnNEr3tqREywZOwViYzYjp9aOrNrfOLKLvpWxV19kzTHhgmH85JHLEp_2Pr-tjxGXEDU2uRGUMqYtnlk0Yp_tB5QTtTiiWVINhbXKEP6MtihfJh5qAcEAQa8yApsPus9_DpFFQZeufAuJO-jl_rxtempmY_TuPO8a4",
+      "altText": "Doppler weather radar ground truth observation of severe cyclone core showing high-resolution composite reflectivity"
+    }
+  ],
+  "meanAbsoluteError": {
+    "nwp12kmMm": 28.4,
+    "ai5kmMm": 8.1,
+    "percentChange": -71
+  }
+}
