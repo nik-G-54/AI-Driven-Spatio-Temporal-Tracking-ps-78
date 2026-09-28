@@ -94,6 +94,7 @@ export interface ActiveAnomaly {
   leadTime: string;
   landfallEta: string | null;
   status: string | null;
+  zIndex?: number;
 }
 
 export interface ForecastTimelineStep {

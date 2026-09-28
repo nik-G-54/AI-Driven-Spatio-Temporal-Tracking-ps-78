@@ -3,46 +3,33 @@ import './dashboard.css';
 import {
   getActiveAnomalies,
   getAnomalyOverview,
-  getDashboardKpis,
   getDashboardOverview,
-  getForecastTimeline,
-  getProcessingPipeline,
   type ActiveAnomaly,
   type AnomalyOverview,
-  type DashboardKpis as DashboardKpisData,
   type DashboardOverview as DashboardOverviewData,
-  type ForecastTimeline,
-  type ProcessingPipeline as ProcessingPipelineData,
 } from './dashboard.api';
 import DashboardHeader from './components/DashboardHeader';
 import DashboardKpis from './components/DashboardKpis';
-import GlobalAnomalyOverview from './components/GlobalAnomalyOverview';
-import ActiveTrackedAnomalies from './components/ActiveTrackedAnomalies';
-import EnsembleForecastTimeline from './components/EnsembleForecastTimeline';
-import ProcessingPipeline from './components/ProcessingPipeline';
+import MapPlaceholder from './components/MapPlaceholder';
+import ZIndexForecastEvolution from './components/ZIndexForecastEvolution';
+import AreaWiseSeverity from './components/AreaWiseSeverity';
+import DetectedEventsTable from './components/DetectedEventsTable';
 
 interface DashboardData {
   overview: DashboardOverviewData;
-  kpis: DashboardKpisData;
   anomalyOverview: AnomalyOverview;
   activeAnomalies: ActiveAnomaly[];
-  forecastTimeline: ForecastTimeline;
-  processingPipeline: ProcessingPipelineData;
 }
 
 type LoadState = 'loading' | 'success' | 'error';
 
-async function fetchAllDashboardData(): Promise<DashboardData> {
-  const [overview, kpis, anomalyOverview, activeAnomalies, forecastTimeline, processingPipeline] =
-    await Promise.all([
-      getDashboardOverview(),
-      getDashboardKpis(),
-      getAnomalyOverview(),
-      getActiveAnomalies(),
-      getForecastTimeline(),
-      getProcessingPipeline(),
-    ]);
-  return { overview, kpis, anomalyOverview, activeAnomalies, forecastTimeline, processingPipeline };
+async function fetchDashboardData(): Promise<DashboardData> {
+  const [overview, anomalyOverview, activeAnomalies] = await Promise.all([
+    getDashboardOverview(),
+    getAnomalyOverview(),
+    getActiveAnomalies(),
+  ]);
+  return { overview, anomalyOverview, activeAnomalies };
 }
 
 export default function Dashboard() {
@@ -54,11 +41,11 @@ export default function Dashboard() {
   useEffect(() => {
     let ignore = false;
 
-    fetchAllDashboardData()
+    fetchDashboardData()
       .then((result) => {
         if (ignore) return;
         setData(result);
-        setSelectedAnomalyId((prev) => prev ?? result.anomalyOverview.selectedTarget.eventId);
+        setSelectedAnomalyId((prev) => prev ?? result.activeAnomalies[0]?.id ?? null);
         setLoadState('success');
       })
       .catch(() => {
@@ -73,7 +60,7 @@ export default function Dashboard() {
   const handleRefresh = async () => {
     setIsRefreshing(true);
     try {
-      const result = await fetchAllDashboardData();
+      const result = await fetchDashboardData();
       setData(result);
       setLoadState('success');
     } catch {
@@ -90,8 +77,15 @@ export default function Dashboard() {
   if (loadState === 'error' || !data) {
     return (
       <div className="max-w-[1440px] mx-auto px-7 py-6">
-        <div className="p-6 rounded-xl border border-red-200 bg-red-50 text-[#B91C1C] text-body-md">
-          Unable to load Dashboard telemetry. Please try refreshing the page.
+        <div className="p-6 rounded-lg border border-destructive bg-destructive/10 text-destructive text-body-md flex items-center justify-between">
+          <span>Unable to load Dashboard telemetry. Please check your data connection.</span>
+          <button
+            type="button"
+            onClick={handleRefresh}
+            className="px-3 py-1.5 rounded bg-destructive text-destructive-foreground text-xs font-semibold hover:opacity-90 transition-opacity"
+          >
+            Retry
+          </button>
         </div>
       </div>
     );
@@ -101,24 +95,38 @@ export default function Dashboard() {
   const selectedId = selectedAnomalyId ?? activeAnomalies[0]?.id ?? '';
 
   return (
-    <main className="relative min-h-screen bg-[#F8FAFC]">
+    <main className="relative min-h-screen bg-background text-foreground transition-colors duration-200">
       <div className="max-w-[1440px] mx-auto px-7 py-6">
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full gap-6">
+          {/* Section 1: Header / Page Context */}
           <DashboardHeader overview={data.overview} onRefresh={handleRefresh} isRefreshing={isRefreshing} />
-          <DashboardKpis kpis={data.kpis} />
 
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-6 items-start">
-            <GlobalAnomalyOverview data={data.anomalyOverview} />
-            <ActiveTrackedAnomalies
+          {/* Section 2: Locked 4 KPI Cards (Active Anomalies | Severe Events | Next Window | Areas at Risk) */}
+          <DashboardKpis anomalies={activeAnomalies} />
+
+          {/* Section 3: Main Anomaly Map Area Placeholder */}
+          <section className="w-full">
+            <MapPlaceholder
+              domain={data.anomalyOverview.domain}
               anomalies={activeAnomalies}
               selectedId={selectedId}
               onSelect={setSelectedAnomalyId}
             />
           </section>
 
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-6">
-            <EnsembleForecastTimeline timeline={data.forecastTimeline} />
-            <ProcessingPipeline pipeline={data.processingPipeline} />
+          {/* Section 4: Z-Index Forecast Evolution & Area-wise Severity Visualizations */}
+          <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <ZIndexForecastEvolution anomalies={activeAnomalies} />
+            <AreaWiseSeverity anomalies={activeAnomalies} />
+          </section>
+
+          {/* Section 6: Detected Events Table */}
+          <section className="w-full">
+            <DetectedEventsTable
+              anomalies={activeAnomalies}
+              selectedId={selectedId}
+              onSelect={setSelectedAnomalyId}
+            />
           </section>
         </div>
       </div>
@@ -128,25 +136,23 @@ export default function Dashboard() {
 
 function DashboardSkeleton() {
   return (
-    <main className="relative min-h-screen bg-[#F8FAFC]">
-      <div className="max-w-[1440px] mx-auto px-7 py-6 animate-pulse">
-        <div className="h-24 border-b border-[#E2E8F0] pb-6 flex flex-col gap-3">
-          <div className="h-4 w-64 bg-[#E2E8F0] rounded" />
-          <div className="h-8 w-96 bg-[#E2E8F0] rounded" />
+    <main className="relative min-h-screen bg-background text-foreground">
+      <div className="max-w-[1440px] mx-auto px-7 py-6 animate-pulse flex flex-col gap-6">
+        <div className="h-24 border-b border-border pb-6 flex flex-col gap-3">
+          <div className="h-4 w-64 bg-muted rounded" />
+          <div className="h-8 w-96 bg-muted rounded" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {Array.from({ length: 4 }).map((_, index) => (
-            <div key={index} className="h-28 bg-white border border-[#E2E8F0] rounded-xl" />
+            <div key={index} className="h-28 bg-card border border-border rounded-lg" />
           ))}
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-6">
-          <div className="lg:col-span-8 min-h-[580px] bg-white border border-[#E2E8F0] rounded-xl" />
-          <div className="lg:col-span-4 min-h-[580px] bg-white border border-[#E2E8F0] rounded-xl" />
+        <div className="w-full h-[460px] bg-card border border-border rounded-lg" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="h-[360px] bg-card border border-border rounded-lg" />
+          <div className="h-[360px] bg-card border border-border rounded-lg" />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-6">
-          <div className="h-72 bg-white border border-[#E2E8F0] rounded-xl" />
-          <div className="h-72 bg-white border border-[#E2E8F0] rounded-xl" />
-        </div>
+        <div className="w-full h-[320px] bg-card border border-border rounded-lg" />
       </div>
     </main>
   );

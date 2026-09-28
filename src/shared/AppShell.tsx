@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import TopHeader from './TopHeader';
 import { getSystemStatus, type SystemStatus } from './shared.api';
 
-// Shared layout wrapping every routed page. Must not import from any
-// page module (dashboard/, event-monitor/, etc.) — only the reverse
-// is allowed.
+// Shared layout wrapping every routed page.
 export default function AppShell() {
   const [status, setStatus] = useState<SystemStatus | null>(null);
 
@@ -21,17 +18,14 @@ export default function AppShell() {
   }, []);
 
   if (!status) {
-    return <div className="min-h-screen bg-[#F8FAFC]" />;
+    return <div className="min-h-screen bg-background" />;
   }
 
   return (
     <>
       <Sidebar status={status} />
       <div className="pl-[248px]">
-        <TopHeader status={status} />
-        <div className="pt-[68px]">
-          <Outlet />
-        </div>
+        <Outlet />
       </div>
     </>
   );
