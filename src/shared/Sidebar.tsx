@@ -32,6 +32,7 @@ const NAV_SECTIONS: NavSection[] = [
       { path: '/event-details', icon: 'view_column', label: 'Event Details' },
       { path: '/model-analysis', icon: 'neurology', label: 'Model Analysis' },
       { path: '/historical-replay', icon: 'history', label: 'Historical Replay' },
+      { path: '/retrospective', icon: 'fact_check', label: 'Retrospective AI Validation' },
     ],
   },
 ];

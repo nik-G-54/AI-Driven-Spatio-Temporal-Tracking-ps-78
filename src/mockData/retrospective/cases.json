@@ -1,0 +1,41 @@
+{
+  "case-a-extreme-precipitation": {
+    "label": "Case A — Extreme Precipitation",
+    "regionSource": "mumbai-2021",
+    "eventType": "extreme_rainfall",
+    "eventName": "Prototype Case A — Extreme Precipitation (illustrative)",
+    "country": "India",
+    "dateLabel": "Illustrative window: T0 → T+72h (no real date)",
+    "description": "Placeholder case used only to exercise the Retrospective AI Validation UI. Region geometry is reused from the existing Historical Replay domain; all field values are simulated.",
+    "nwp": { "source": "Simulated NWP (mock)", "variable": "Precipitation", "unit": "mm/day", "leadTimeHours": 48, "resolutionKm": 12, "gridSize": 8, "baseline": 20, "peak": 140, "centerFrac": [0.5, 0.5], "spreadFrac": 0.32 },
+    "ai": { "model": "Simulated AI output (no model run)", "variable": "Precipitation", "unit": "mm/day", "resolutionKm": 5, "gridSize": 8, "baseline": 15, "peak": 190, "centerFrac": [0.45, 0.55], "spreadFrac": 0.2, "confidence": 0.7 },
+    "reference": { "source": "Simulated reference dataset (mock)", "variable": "Precipitation", "unit": "mm/day", "resolutionKm": 5, "gridSize": 8, "baseline": 10, "peak": 210, "centerFrac": [0.4, 0.6], "spreadFrac": 0.18 },
+    "detection": { "severity": "extreme", "confidence": 0.7, "affectedFrac": { "north": 0.75, "south": 0.25, "east": 0.8, "west": 0.35 } }
+  },
+  "case-b-heatwave": {
+    "label": "Case B — Heatwave",
+    "regionSource": "heatwave-2022",
+    "eventType": "heatwave",
+    "eventName": "Prototype Case B — Heatwave (illustrative)",
+    "country": "India",
+    "dateLabel": "Illustrative window: T0 → T+72h (no real date)",
+    "description": "Placeholder case used only to exercise the Retrospective AI Validation UI. Region geometry is reused from the existing Historical Replay domain; all field values are simulated.",
+    "nwp": { "source": "Simulated NWP (mock)", "variable": "2 m temperature", "unit": "°C", "leadTimeHours": 48, "resolutionKm": 12, "gridSize": 8, "baseline": 34, "peak": 44, "centerFrac": [0.5, 0.5], "spreadFrac": 0.4 },
+    "ai": { "model": "Simulated AI output (no model run)", "variable": "2 m temperature", "unit": "°C", "resolutionKm": 5, "gridSize": 8, "baseline": 34, "peak": 46, "centerFrac": [0.55, 0.45], "spreadFrac": 0.28, "confidence": 0.65 },
+    "reference": { "source": "Simulated reference dataset (mock)", "variable": "2 m temperature", "unit": "°C", "resolutionKm": 5, "gridSize": 8, "baseline": 33, "peak": 47, "centerFrac": [0.6, 0.45], "spreadFrac": 0.26 },
+    "detection": { "severity": "severe", "confidence": 0.65, "affectedFrac": { "north": 0.85, "south": 0.3, "east": 0.75, "west": 0.2 } }
+  },
+  "case-c-cyclone": {
+    "label": "Case C — Cyclone",
+    "regionSource": "amphan-2020",
+    "eventType": "cyclone",
+    "eventName": "Prototype Case C — Cyclone (illustrative)",
+    "country": "India",
+    "dateLabel": "Illustrative window: T0 → T+72h (no real date)",
+    "description": "Placeholder case used only to exercise the Retrospective AI Validation UI. Region geometry is reused from the existing Historical Replay domain; all field values are simulated.",
+    "nwp": { "source": "Simulated NWP (mock)", "variable": "10 m wind speed", "unit": "km/h", "leadTimeHours": 72, "resolutionKm": 12, "gridSize": 8, "baseline": 20, "peak": 120, "centerFrac": [0.5, 0.5], "spreadFrac": 0.3 },
+    "ai": { "model": "Simulated AI output (no model run)", "variable": "10 m wind speed", "unit": "km/h", "resolutionKm": 5, "gridSize": 8, "baseline": 20, "peak": 150, "centerFrac": [0.4, 0.5], "spreadFrac": 0.2, "confidence": 0.6 },
+    "reference": { "source": "Simulated reference dataset (mock)", "variable": "10 m wind speed", "unit": "km/h", "resolutionKm": 5, "gridSize": 8, "baseline": 18, "peak": 160, "centerFrac": [0.35, 0.55], "spreadFrac": 0.19 },
+    "detection": { "severity": "severe", "confidence": 0.6, "affectedFrac": { "north": 0.7, "south": 0.15, "east": 0.75, "west": 0.3 } }
+  }
+}
