@@ -1,0 +1,45 @@
+{
+  "dataset": "trajectory",
+  "representation": "evolving_footprint_centroid",
+  "basis": "half_maximum_centroid",
+  "note": "This precipitation system is a slowly moving band, not a cyclone-like point track. Each point is the intensity-weighted centroid of cells >= 50 % of the field maximum at that time step, plus the intensity and exceedance-footprint area, to support animation of the evolving footprint.",
+  "unit": "mm/6h",
+  "provenance": {
+    "source": "Derived from nwp.json, ai_forecast.json and reference.json",
+    "source_type": "derived",
+    "data_status": "simulated",
+    "variable": "precipitation_mm",
+    "unit": "mm/6h",
+    "valid_times": [
+      "2099-07-01T00:00:00Z",
+      "2099-07-01T06:00:00Z",
+      "2099-07-01T12:00:00Z",
+      "2099-07-01T18:00:00Z",
+      "2099-07-02T00:00:00Z"
+    ]
+  },
+  "sources": {
+    "nwp": [
+      { "timestamp": "2099-07-01T00:00:00Z", "lead_hours": 0, "latitude": 18.1837, "longitude": 72.7953, "intensity": 25, "footprint_area_km2": 0 },
+      { "timestamp": "2099-07-01T06:00:00Z", "lead_hours": 6, "latitude": 18.3045, "longitude": 72.8494, "intensity": 42, "footprint_area_km2": 0 },
+      { "timestamp": "2099-07-01T12:00:00Z", "lead_hours": 12, "latitude": 18.4699, "longitude": 72.9125, "intensity": 58, "footprint_area_km2": 0 },
+      { "timestamp": "2099-07-01T18:00:00Z", "lead_hours": 18, "latitude": 18.6128, "longitude": 72.9961, "intensity": 68, "footprint_area_km2": 2569 },
+      { "timestamp": "2099-07-02T00:00:00Z", "lead_hours": 24, "latitude": 18.73, "longitude": 73.1029, "intensity": 50, "footprint_area_km2": 0 }
+    ],
+    "ai": [
+      { "timestamp": "2099-07-01T00:00:00Z", "lead_hours": 0, "latitude": 18.4832, "longitude": 72.8089, "intensity": 30, "footprint_area_km2": 0 },
+      { "timestamp": "2099-07-01T06:00:00Z", "lead_hours": 6, "latitude": 18.6069, "longitude": 72.9074, "intensity": 78, "footprint_area_km2": 998 },
+      { "timestamp": "2099-07-01T12:00:00Z", "lead_hours": 12, "latitude": 18.7352, "longitude": 73.0074, "intensity": 118, "footprint_area_km2": 3785 },
+      { "timestamp": "2099-07-01T18:00:00Z", "lead_hours": 18, "latitude": 18.8597, "longitude": 73.1065, "intensity": 96, "footprint_area_km2": 2345 },
+      { "timestamp": "2099-07-02T00:00:00Z", "lead_hours": 24, "latitude": 18.9849, "longitude": 73.2067, "intensity": 52, "footprint_area_km2": 0 }
+    ],
+    "reference": [
+      { "timestamp": "2099-07-01T00:00:00Z", "lead_hours": 0, "latitude": 18.4529, "longitude": 72.8473, "intensity": 35, "footprint_area_km2": 0 },
+      { "timestamp": "2099-07-01T06:00:00Z", "lead_hours": 6, "latitude": 18.5769, "longitude": 72.9476, "intensity": 85, "footprint_area_km2": 764 },
+      { "timestamp": "2099-07-01T12:00:00Z", "lead_hours": 12, "latitude": 18.701, "longitude": 73.049, "intensity": 130, "footprint_area_km2": 2729 },
+      { "timestamp": "2099-07-01T18:00:00Z", "lead_hours": 18, "latitude": 18.8286, "longitude": 73.1482, "intensity": 105, "footprint_area_km2": 1789 },
+      { "timestamp": "2099-07-02T00:00:00Z", "lead_hours": 24, "latitude": 18.9551, "longitude": 73.2485, "intensity": 60, "footprint_area_km2": 29 }
+    ]
+  },
+  "disclaimer": "SIMULATED prototype data. Not a real observation, real NWP output or real model output."
+}

@@ -37,6 +37,9 @@ export default function ValidationPanel({ metrics, detection }: ValidationPanelP
                 <td className="py-2 pr-3 text-[#0F172A] font-medium">
                   {metric.name}
                   <div className="text-label-sm text-[#64748B] font-normal normal-case tracking-normal">
+                    Scope: {metric.scope}
+                  </div>
+                  <div className="text-label-sm text-[#64748B] font-normal normal-case tracking-normal">
                     {metric.note}
                   </div>
                 </td>

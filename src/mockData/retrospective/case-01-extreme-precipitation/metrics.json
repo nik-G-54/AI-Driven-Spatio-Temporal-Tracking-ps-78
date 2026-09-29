@@ -1,0 +1,19 @@
+{
+  "dataset": "metrics",
+  "reference_peak_frame_lead_hours": 12,
+  "provenance": { "source": "Calculated from the simulated fields", "source_type": "derived", "data_status": "simulated", "variable": "precipitation_mm", "unit": "mm/6h" },
+  "statement": "Prototype calculations on simulated data. Not evidence of real model performance.",
+  "metrics": [
+    { "metric": "Peak intensity", "nwp_value": 68, "ai_value": 118, "reference_value": 130, "unit": "mm/6h", "status": "simulated", "scope": "all frames, field maximum", "note": "Calculated from the simulated fields by the generator script; fields were constructed to illustrate refinement, so this is not evidence of real model performance." },
+    { "metric": "Peak intensity error", "nwp_value": -62, "ai_value": -12, "reference_value": null, "unit": "mm/6h", "status": "simulated", "scope": "all frames; model peak − reference peak", "note": "Calculated from the simulated fields by the generator script; fields were constructed to illustrate refinement, so this is not evidence of real model performance." },
+    { "metric": "Mean absolute error", "nwp_value": 9.98, "ai_value": 1.89, "reference_value": null, "unit": "mm/6h", "status": "simulated", "scope": "all frames, on the 0.05° reference grid (NWP bilinearly resampled)", "note": "Calculated from the simulated fields by the generator script; fields were constructed to illustrate refinement, so this is not evidence of real model performance." },
+    { "metric": "Spatial overlap (IoU of exceedance area)", "nwp_value": 0, "ai_value": 72.1, "reference_value": null, "unit": "%", "status": "simulated", "scope": "T+12h (reference peak frame)", "note": "Calculated from the simulated fields by the generator script; fields were constructed to illustrate refinement, so this is not evidence of real model performance." },
+    { "metric": "Centroid distance", "nwp_value": 29.5, "ai_value": 5.8, "reference_value": null, "unit": "km", "status": "simulated", "scope": "T+12h (reference peak frame); half-maximum centroid vs reference", "note": "Calculated from the simulated fields by the generator script; fields were constructed to illustrate refinement, so this is not evidence of real model performance." },
+    { "metric": "Affected area (exceedance footprint)", "nwp_value": 0, "ai_value": 3785, "reference_value": 2729, "unit": "km²", "status": "simulated", "scope": "T+12h (reference peak frame)", "note": "Calculated from the simulated fields by the generator script; fields were constructed to illustrate refinement, so this is not evidence of real model performance." },
+    { "metric": "Affected-area difference", "nwp_value": -2729, "ai_value": 1056, "reference_value": null, "unit": "km²", "status": "simulated", "scope": "T+12h (reference peak frame); model − reference", "note": "Calculated from the simulated fields by the generator script; fields were constructed to illustrate refinement, so this is not evidence of real model performance." },
+    { "metric": "Timing difference of peak", "nwp_value": 6, "ai_value": 0, "reference_value": null, "unit": "h", "status": "simulated", "scope": "time of field maximum, model − reference", "note": "Calculated from the simulated fields by the generator script; fields were constructed to illustrate refinement, so this is not evidence of real model performance." },
+    { "metric": "Event detection score", "nwp_value": null, "ai_value": null, "reference_value": null, "unit": "", "status": "not_computed", "scope": "n/a", "note": "Not computed — needs a defined detection protocol; not derived in Phase 2." },
+    { "metric": "Confidence calibration", "nwp_value": null, "ai_value": null, "reference_value": null, "unit": "", "status": "not_computed", "scope": "n/a", "note": "Not computed — the simulated AI output has no real probabilistic confidence to calibrate." }
+  ],
+  "disclaimer": "SIMULATED prototype data. Not a real observation, real NWP output or real model output."
+}

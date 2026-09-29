@@ -1,0 +1,19 @@
+{
+  "case_id": "case-01-extreme-precipitation",
+  "event_type": "extreme_rainfall",
+  "event_name": "Prototype Case 01 — Extreme Precipitation (simulated)",
+  "selector_label": "Case 01 — Extreme Precipitation (Prototype)",
+  "region": "Konkan–Maharashtra coast (prototype domain)",
+  "country": "India",
+  "start_time": "2099-07-01T00:00:00Z",
+  "end_time": "2099-07-02T00:00:00Z",
+  "time_step_hours": 6,
+  "description": "A simulated slow-moving band of extreme precipitation near a coast, used to build and test the retrospective NWP → AI → reference comparison. The event is fictional; the region only sets the geographic frame.",
+  "prototype_status": "prototype_simulation",
+  "source_type": "prototype",
+  "source_name": "Deterministic analytic generator (scripts/generate-retrospective-case-01.mjs)",
+  "data_status": "simulated",
+  "timestamps_note": "Timestamps are synthetic (year 2099) so they cannot be mistaken for a real event date.",
+  "domain": { "south": 17.5, "north": 19.5, "west": 72.5, "east": 74.5 },
+  "disclaimer": "SIMULATED prototype data. Not a real observation, real NWP output or real model output."
+}

@@ -1,5 +1,5 @@
-import type { Provenance, SpatialField } from '../retrospective.types';
-import { fieldToRows, formatValue, summarizeField, type ValueScale } from '../retrospective.utils';
+import type { Provenance, TimeStepField } from '../retrospective.types';
+import { fieldToRows, formatLead, formatTimestamp, formatValue, summarizeField, type ValueScale } from '../retrospective.utils';
 
 interface FieldPanelProps {
   // Scientifically unambiguous role label, e.g. "Forecast (NWP)".
@@ -7,8 +7,8 @@ interface FieldPanelProps {
   // Data-origin line, e.g. the simulated source or model name.
   origin: string;
   variable: string;
-  timestamp: string | null;
-  field: SpatialField;
+  // The selected time step of this dataset.
+  frame: TimeStepField;
   scale: ValueScale;
   provenance: Provenance;
   extra?: Array<{ label: string; value: string }>;
@@ -20,19 +20,19 @@ export default function FieldPanel({
   title,
   origin,
   variable,
-  timestamp,
-  field,
+  frame,
   scale,
   provenance,
   extra = [],
 }: FieldPanelProps) {
+  const { field } = frame;
   const rows = fieldToRows(field);
   const summary = summarizeField(field);
   const range = scale.max - scale.min || 1;
 
   const meta = [
     { label: 'Variable', value: `${variable} (${field.unit})` },
-    { label: 'Timestamp', value: timestamp ?? 'Illustrative — no real date' },
+    { label: 'Time step', value: `${formatLead(frame.leadTimeHours)} · ${formatTimestamp(frame.timestamp)}` },
     { label: 'Resolution', value: field.resolutionKm === null ? '—' : `${field.resolutionKm} km (nominal)` },
     { label: 'Peak', value: formatValue(summary.max, field.unit) },
     ...extra,
