@@ -1,5 +1,3 @@
-import type { EventMonitorTrajectory, GeoPoint } from './event-monitor.api';
-
 export type Severity = 'low' | 'moderate' | 'high' | 'severe' | 'extreme';
 
 export interface SeverityStyle {
@@ -17,8 +15,6 @@ const SEVERITY_STYLES: Record<Severity, SeverityStyle> = {
   extreme: { accent: '#B91C1C', badgeBg: 'bg-red-200', badgeText: 'text-[#7F1D1D]', badgeBorder: 'border-red-300' },
 };
 
-// Normalizes event-level status tiers (ADVISORY/WATCH/SEVERE) and alert-level
-// tiers (low/moderate/high/severe/extreme) onto the same 5-stage spectrum.
 const SEVERITY_ALIASES: Record<string, Severity> = {
   advisory: 'moderate',
   watch: 'high',
@@ -42,12 +38,6 @@ export interface SvgPoint {
   y: number;
 }
 
-/**
- * Deterministically projects a lat/lon pair onto the Event Monitor's
- * stylized geospatial canvas. Not a scientific projection — a simple linear
- * mapping across the given bounds, so mock data authored in lat/lon renders
- * consistently without scattering pixel math across JSX.
- */
 export function projectGeoPointToSvg(
   latitude: number,
   longitude: number,
@@ -58,19 +48,6 @@ export function projectGeoPointToSvg(
   const x = ((longitude - bounds.minLon) / (bounds.maxLon - bounds.minLon)) * svgWidth;
   const y = ((bounds.maxLat - latitude) / (bounds.maxLat - bounds.minLat)) * svgHeight;
   return { x, y };
-}
-
-const KM_PER_DEGREE = 111;
-
-export function kmToSvgLength(km: number, bounds: MapBounds, axis: 'lat' | 'lon', svgWidth = 1000, svgHeight = 600): number {
-  const degrees = km / KM_PER_DEGREE;
-  return axis === 'lon'
-    ? (degrees / (bounds.maxLon - bounds.minLon)) * svgWidth
-    : (degrees / (bounds.maxLat - bounds.minLat)) * svgHeight;
-}
-
-export function formatCoordinate(point: GeoPoint): string {
-  return `${point.latitude.toFixed(2)}°N, ${point.longitude.toFixed(2)}°E`;
 }
 
 export function classNames(...values: Array<string | false | null | undefined>): string {
@@ -86,16 +63,10 @@ type GeoJsonFeatureCollection = {
   }>;
 };
 
-/**
- * Converts the currently loaded trajectory (historical + forecast points)
- * into a standard GeoJSON FeatureCollection: one LineString for the full
- * track, plus one Point feature per waypoint carrying its lead hour/status.
- */
-export function trajectoryToGeoJSON(trajectory: EventMonitorTrajectory, eventId: string): GeoJsonFeatureCollection {
-  const allPoints = [
-    ...trajectory.historical.map((p) => ({ ...p, phase: 'historical' as const })),
-    ...trajectory.forecast.map((p) => ({ ...p, phase: 'forecast' as const })),
-  ].sort((a, b) => a.leadHour - b.leadHour);
+export function trajectoryToGeoJSON(trajectory: any, eventId: string): GeoJsonFeatureCollection {
+  const historical = (trajectory.historical || []).map((p: any) => ({ ...p, phase: 'historical' as const }));
+  const forecast = (trajectory.forecast || []).map((p: any) => ({ ...p, phase: 'forecast' as const }));
+  const allPoints = [...historical, ...forecast].sort((a: any, b: any) => a.leadHour - b.leadHour);
 
   return {
     type: 'FeatureCollection',
@@ -105,19 +76,19 @@ export function trajectoryToGeoJSON(trajectory: EventMonitorTrajectory, eventId:
         properties: { eventId, kind: 'track' },
         geometry: {
           type: 'LineString',
-          coordinates: allPoints.map((p) => [p.longitude, p.latitude]),
+          coordinates: allPoints.map((p: any) => [p.longitude || p.lon, p.latitude || p.lat]),
         },
       },
-      ...allPoints.map((p) => ({
+      ...allPoints.map((p: any) => ({
         type: 'Feature' as const,
         properties: {
           eventId,
           leadHour: p.leadHour,
           timestamp: p.timestamp,
           phase: p.phase,
-          status: 'status' in p ? p.status : undefined,
+          status: p.status,
         },
-        geometry: { type: 'Point' as const, coordinates: [p.longitude, p.latitude] },
+        geometry: { type: 'Point' as const, coordinates: [p.longitude || p.lon, p.latitude || p.lat] },
       })),
     ],
   };

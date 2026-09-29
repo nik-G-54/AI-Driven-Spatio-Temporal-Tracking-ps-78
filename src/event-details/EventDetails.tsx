@@ -9,6 +9,7 @@ import IntensityAnalysis from './components/IntensityAnalysis';
 import EnsembleAnalysis from './components/EnsembleAnalysis';
 import GridInspector from './components/GridInspector';
 import AlertOutput from './components/AlertOutput';
+import SatelliteEvolution from './components/SatelliteEvolution';
 
 export default function EventDetails() {
   const { eventId: routeEventId } = useParams<{ eventId: string }>();
@@ -79,10 +80,7 @@ export default function EventDetails() {
     downloadTextFile(`${current.alerts.payload.event_id}-hazard-cells.geojson`, JSON.stringify(geojson, null, 2));
   };
 
-  const handleSendWebhook = () => {
-    // No real webhook endpoint exists for this demo; this is an honest
-    // client-side simulation only (see AlertOutput's confirmation message).
-  };
+  const handleSendWebhook = () => {};
 
   if (loadedEventId !== eventId) {
     return <EventDetailsSkeleton />;
@@ -112,6 +110,9 @@ export default function EventDetails() {
             onToggleGrid={() => setShowGrid((v) => !v)}
             onDownloadCapJson={handleDownloadCapJson}
           />
+
+          {/* SATELLITE EVOLUTION SECTION (3 Chronological Grayscale Infrared Satellite Snapshots) */}
+          <SatelliteEvolution eventId={eventId} />
 
           <section className="flex flex-col gap-3">
             <EventOverview overview={overview} />
@@ -170,20 +171,10 @@ function EventDetailsSkeleton() {
     <main className="relative min-h-screen bg-[#F8FAFC]">
       <div className="max-w-[1440px] mx-auto px-7 py-6 animate-pulse flex flex-col gap-6">
         <div className="h-28 bg-white border border-[#E2E8F0] rounded-xl" />
-        <div className="h-10 bg-white border border-[#E2E8F0] rounded-lg" />
+        <div className="h-64 bg-[#0b1220] border border-[#312e81] rounded-2xl" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div className="h-[480px] bg-white border border-[#E2E8F0] rounded-xl" />
           <div className="h-[480px] bg-white border border-[#E2E8F0] rounded-xl" />
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            <div className="h-72 bg-white border border-[#E2E8F0] rounded-xl" />
-            <div className="h-56 bg-white border border-[#E2E8F0] rounded-xl" />
-          </div>
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="h-72 bg-white border border-[#E2E8F0] rounded-xl" />
-            <div className="h-56 bg-white border border-[#E2E8F0] rounded-xl" />
-          </div>
         </div>
       </div>
     </main>
