@@ -35,7 +35,7 @@ export default function KpiCard({
         className={`absolute -right-4 -bottom-4 w-16 h-16 ${decorativeBg} rounded-full pointer-events-none group-hover:scale-125 transition-transform opacity-30`}
       />
       <div className="flex items-center justify-between">
-        <span className="text-label-sm text-muted-foreground uppercase tracking-wider font-mono">{label}</span>
+        <span className="text-[13px] text-foreground font-bold uppercase tracking-wider font-mono">{label}</span>
         <div className={`w-8 h-8 rounded-lg ${iconBg} ${iconColor} flex items-center justify-center`}>
           <span className="material-symbols-outlined text-[20px]">{icon}</span>
         </div>

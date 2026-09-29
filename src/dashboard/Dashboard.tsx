@@ -11,9 +11,10 @@ import {
 import DashboardHeader from './components/DashboardHeader';
 import DashboardKpis from './components/DashboardKpis';
 import MapPlaceholder from './components/MapPlaceholder';
-import ZIndexForecastEvolution from './components/ZIndexForecastEvolution';
-import AreaWiseSeverity from './components/AreaWiseSeverity';
+import AnomalyTypeDistribution from './components/AnomalyTypeDistribution';
+import DailyAnomalyAlertDensity from './components/DailyAnomalyAlertDensity';
 import DetectedEventsTable from './components/DetectedEventsTable';
+import { BentoGrid } from '../shared/ui/bento-grid';
 
 interface DashboardData {
   overview: DashboardOverviewData;
@@ -45,7 +46,7 @@ export default function Dashboard() {
       .then((result) => {
         if (ignore) return;
         setData(result);
-        setSelectedAnomalyId((prev) => prev ?? result.activeAnomalies[0]?.id ?? null);
+        setSelectedAnomalyId((prev) => prev ?? null);
         setLoadState('success');
       })
       .catch(() => {
@@ -91,43 +92,54 @@ export default function Dashboard() {
     );
   }
 
+  const handleSelectAnomaly = (id: string) => {
+    setSelectedAnomalyId((prev) => (prev === id ? null : id));
+  };
+
   const activeAnomalies = data.activeAnomalies;
-  const selectedId = selectedAnomalyId ?? activeAnomalies[0]?.id ?? '';
+  const selectedId = selectedAnomalyId ?? '';
 
   return (
     <main className="relative min-h-screen bg-background text-foreground transition-colors duration-200">
       <div className="max-w-[1440px] mx-auto px-7 py-6">
         <div className="flex flex-col w-full gap-6">
-          {/* Section 1: Header / Page Context */}
+          {/* Header & Page Context */}
           <DashboardHeader overview={data.overview} onRefresh={handleRefresh} isRefreshing={isRefreshing} />
 
-          {/* Section 2: Locked 4 KPI Cards (Active Anomalies | Severe Events | Next Window | Areas at Risk) */}
+          {/* 4 KPI Cards */}
           <DashboardKpis anomalies={activeAnomalies} />
 
-          {/* Section 3: Main Anomaly Map Area Placeholder */}
-          <section className="w-full">
-            <MapPlaceholder
-              domain={data.anomalyOverview.domain}
-              anomalies={activeAnomalies}
-              selectedId={selectedId}
-              onSelect={setSelectedAnomalyId}
-            />
-          </section>
+          {/* Bento Grid Container for Map, Anomaly Distribution, Severity Distribution, and Priority Table */}
+          <BentoGrid className="auto-rows-auto gap-6">
+            {/* Bento Item 1: Main Weather Anomaly Map (Full Width: col-span-3) */}
+            <div className="col-span-3">
+              <MapPlaceholder
+                domain={data.anomalyOverview.domain}
+                anomalies={activeAnomalies}
+                selectedId={selectedId}
+                onSelect={handleSelectAnomaly}
+              />
+            </div>
 
-          {/* Section 4: Z-Index Forecast Evolution & Area-wise Severity Visualizations */}
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <ZIndexForecastEvolution anomalies={activeAnomalies} />
-            <AreaWiseSeverity anomalies={activeAnomalies} />
-          </section>
+            {/* Bento Item 2: Anomaly Type Distribution (1/3 Width: col-span-3 lg:col-span-1) */}
+            <div className="col-span-3 lg:col-span-1">
+              <AnomalyTypeDistribution anomalies={activeAnomalies} />
+            </div>
 
-          {/* Section 6: Detected Events Table */}
-          <section className="w-full">
-            <DetectedEventsTable
-              anomalies={activeAnomalies}
-              selectedId={selectedId}
-              onSelect={setSelectedAnomalyId}
-            />
-          </section>
+            {/* Bento Item 3: Severity Distribution (2/3 Width: col-span-3 lg:col-span-2) */}
+            <div className="col-span-3 lg:col-span-2">
+              <DailyAnomalyAlertDensity anomalies={activeAnomalies} />
+            </div>
+
+            {/* Bento Item 4: Priority Events Table (Full Width: col-span-3) */}
+            <div className="col-span-3">
+              <DetectedEventsTable
+                anomalies={activeAnomalies}
+                selectedId={selectedId}
+                onSelect={handleSelectAnomaly}
+              />
+            </div>
+          </BentoGrid>
         </div>
       </div>
     </main>

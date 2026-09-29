@@ -11,8 +11,7 @@
     "maxWind": { "value": 115, "unit": "km/h" },
     "leadTime": "T+48h",
     "landfallEta": "29 Sep 06 UTC",
-    "status": "TRACKING ACTIVE",
-    "zIndex": 3.4
+    "status": "TRACKING ACTIVE"
   },
   {
     "id": "ARB-01",
@@ -26,8 +25,7 @@
     "maxWind": { "value": 68, "unit": "km/h" },
     "leadTime": "T+72h",
     "landfallEta": "30 Sep 18 UTC",
-    "status": "MONITORING DEEP CELL",
-    "zIndex": 2.3
+    "status": "MONITORING DEEP CELL"
   },
   {
     "id": "EGH-01",
@@ -41,8 +39,7 @@
     "maxWind": null,
     "leadTime": "T+24h",
     "landfallEta": null,
-    "status": "STATIONARY CELL",
-    "zIndex": 1.1
+    "status": "STATIONARY CELL"
   },
   {
     "id": "ASM-01",
@@ -56,8 +53,7 @@
     "maxWind": null,
     "leadTime": "T+36h",
     "landfallEta": null,
-    "status": "RAPID MOISTURE INFLUX",
-    "zIndex": 2.8
+    "status": "RAPID MOISTURE INFLUX"
   },
   {
     "id": "IGP-03",
@@ -71,8 +67,7 @@
     "maxWind": { "value": 24, "unit": "km/h" },
     "leadTime": "T+96h",
     "landfallEta": null,
-    "status": "THERMAL ANOMALY SPIKE",
-    "zIndex": 3.1
+    "status": "THERMAL ANOMALY SPIKE"
   },
   {
     "id": "KKN-02",
@@ -86,8 +81,7 @@
     "maxWind": { "value": 45, "unit": "km/h" },
     "leadTime": "T+48h",
     "landfallEta": null,
-    "status": "HIGH PRECIPITATION RISK",
-    "zIndex": 2.5
+    "status": "HIGH PRECIPITATION RISK"
   },
   {
     "id": "HIM-01",
@@ -101,8 +95,7 @@
     "maxWind": { "value": 52, "unit": "km/h" },
     "leadTime": "T+120h",
     "landfallEta": null,
-    "status": "ALTITUDE FREEZE RISK",
-    "zIndex": -0.4
+    "status": "ALTITUDE FREEZE RISK"
   },
   {
     "id": "NBOB-01",
@@ -116,7 +109,6 @@
     "maxWind": { "value": 58, "unit": "km/h" },
     "leadTime": "T+60h",
     "landfallEta": "01 Oct 00 UTC",
-    "status": "DEVELOPING SYSTEM",
-    "zIndex": 1.6
+    "status": "DEVELOPING SYSTEM"
   }
 ]

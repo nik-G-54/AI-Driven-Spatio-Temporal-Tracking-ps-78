@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
 import {
   ResponsiveContainer,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-  Radar,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  LabelList,
   Tooltip,
 } from 'recharts';
 import type { ActiveAnomaly } from '../dashboard.api';
@@ -13,6 +14,60 @@ import type { ActiveAnomaly } from '../dashboard.api';
 interface AnomalyTypeDistributionProps {
   anomalies: ActiveAnomaly[];
 }
+
+const colors = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899', '#06B6D4'];
+
+const getPath = (x: number, y: number, width: number, height: number) => {
+  return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
+  ${x + width / 2}, ${y}
+  C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
+  Z`;
+};
+
+const TriangleBar = (props: any) => {
+  const { x, y, width, height, index, isActive } = props;
+  const nx = Number(x || 0);
+  const ny = Number(y || 0);
+  const nw = Number(width || 0);
+  const nh = Number(height || 0);
+
+  if (nw <= 0 || nh <= 0) return null;
+
+  const color = colors[(index ?? 0) % colors.length];
+
+  return (
+    <path
+      strokeWidth={isActive ? 3 : 0}
+      d={getPath(nx, ny, nw, nh)}
+      stroke={color}
+      fill={color}
+      style={{
+        transition: 'stroke-width 0.3s ease-out',
+      }}
+    />
+  );
+};
+
+const CustomColorLabel = (props: any) => {
+  const { x, y, width, value, index } = props;
+  if (value === undefined || value === null) return null;
+  const fill = colors[(index ?? 0) % colors.length];
+  const cx = Number(x || 0) + Number(width || 0) / 2;
+  const cy = Number(y || 0) - 8;
+
+  return (
+    <text
+      x={cx}
+      y={cy}
+      fill={fill}
+      textAnchor="middle"
+      fontSize={12}
+      fontWeight={700}
+    >
+      {value}
+    </text>
+  );
+};
 
 interface CustomTooltipProps {
   active?: boolean;
@@ -33,7 +88,7 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
 }
 
 export default function AnomalyTypeDistribution({ anomalies }: AnomalyTypeDistributionProps) {
-  const { chartData, maxCount, totalCount } = useMemo(() => {
+  const { chartData, totalCount } = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const item of anomalies) {
       const rawType = item.type || 'Other';
@@ -49,10 +104,7 @@ export default function AnomalyTypeDistribution({ anomalies }: AnomalyTypeDistri
       count,
     }));
 
-    const max = Math.max(...data.map((d) => d.count), 5);
-    const total = anomalies.length;
-
-    return { chartData: data, maxCount: max, totalCount: total };
+    return { chartData: data, totalCount: anomalies.length };
   }, [anomalies]);
 
   return (
@@ -63,9 +115,6 @@ export default function AnomalyTypeDistribution({ anomalies }: AnomalyTypeDistri
           <h3 className="text-headline-sm text-foreground font-bold">
             Anomaly Type Distribution
           </h3>
-          <p className="text-body-sm text-muted-foreground mt-0.5">
-            Tracked events by anomaly category
-          </p>
         </div>
         <div className="text-right font-mono text-[11px]">
           <span className="px-2.5 py-0.5 rounded bg-muted text-foreground border border-border font-bold">
@@ -80,31 +129,36 @@ export default function AnomalyTypeDistribution({ anomalies }: AnomalyTypeDistri
           No anomaly data available
         </div>
       ) : (
-        <div className="relative flex-1 w-full min-h-[300px] mt-2 flex items-center justify-center">
+        <div className="relative flex-1 w-full min-h-[300px] mt-4 flex items-center justify-center">
           <ResponsiveContainer width="100%" height={320}>
-            <RadarChart data={chartData} margin={{ top: 20, right: 30, bottom: 20, left: 30 }}>
-              <PolarGrid stroke="var(--border)" strokeDasharray="3 3" />
-              <PolarAngleAxis
+            <BarChart
+              data={chartData}
+              margin={{
+                top: 30,
+                right: 20,
+                left: 0,
+                bottom: 75,
+              }}
+            >
+              <CartesianGrid stroke="var(--border)" strokeDasharray="3 3" vertical={false} />
+              <XAxis
                 dataKey="type"
                 tick={{ fill: 'var(--muted-foreground)', fontSize: 11, fontWeight: 500 }}
+                interval={0}
+                angle={-90}
+                textAnchor="end"
+                height={85}
               />
-              <PolarRadiusAxis
-                angle={30}
-                domain={[0, maxCount]}
-                tick={{ fill: 'var(--muted-foreground)', fontSize: 10 }}
-                axisLine={false}
+              <YAxis
+                allowDecimals={false}
+                tick={{ fill: 'var(--muted-foreground)', fontSize: 11 }}
+                width={30}
               />
-              <Radar
-                name="Event Count"
-                dataKey="count"
-                stroke="var(--primary)"
-                fill="var(--primary)"
-                fillOpacity={0.35}
-                strokeWidth={2}
-                isAnimationActive={false}
-              />
-              <Tooltip content={<CustomTooltip />} />
-            </RadarChart>
+              <Tooltip cursor={{ fillOpacity: 0.1, fill: 'var(--muted)' }} content={<CustomTooltip />} />
+              <Bar dataKey="count" shape={TriangleBar}>
+                <LabelList content={CustomColorLabel} position="top" />
+              </Bar>
+            </BarChart>
           </ResponsiveContainer>
         </div>
       )}
