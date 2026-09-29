@@ -15,9 +15,12 @@ Historical Replay (`/historical-replay`), which is track/event-evolution oriente
 | Rich mock dataset (case 01) | `src/mockData/retrospective/case-01-extreme-precipitation/*.json` |
 | Simplified mock cases (02, 03) | `src/mockData/retrospective/cases.json` |
 | Dataset generator / validator | `scripts/generate-retrospective-case-01.mjs`, `scripts/validate-retrospective-case-01.mjs` |
+| Satellite context (Phase 3D, simulated) | `src/retrospective/satellite/` (contract, adapter, alignment, **research + architecture in its README**), `components/ObservationalContext.tsx`, `components/SatelliteContextMap.tsx`, `mockData/.../case-01-extreme-precipitation/satellite.json` |
+| Real historical case research (Phase 4A, docs only) | `src/retrospective/historical/README.md` |
 | Page | `src/retrospective/Retrospective.tsx` |
 | Components / helpers | `src/retrospective/components/`, `src/retrospective/retrospective.utils.ts` |
-| Geospatial validation view (Phase 3A/3B) | `components/PrecipitationWorkspace.tsx` (orchestrator), `FieldMap.tsx`, `ComparativeWeatherMaps.tsx`, `DifferenceMap.tsx`, `AnalyticalWeatherMap.tsx`, `TemporalEvolution.tsx`, `ValidationStrip.tsx`, `LegendBar.tsx`, `MapLegend.tsx`, `src/retrospective/map/*` |
+| **Weather analysis workbench (Phase 4 demo)** | `analysis/` (contract, adapter over the mock API adapters, deterministic field synthesis, simulated radar/satellite), `components/WeatherAnalysisWorkspace.tsx` (orchestrator) — see "Weather analysis workbench" below |
+| Map building blocks (Phase 3) | `components/FieldMap.tsx`, `WeatherMapPanel.tsx`, `ComparativeWeatherMaps.tsx`, `DifferenceMap.tsx`, `ValidationStrip.tsx`, `LegendBar.tsx`, `MapLegend.tsx`, `src/retrospective/map/*` |
 | Route / nav | `src/App.tsx`, `src/shared/Sidebar.tsx` |
 
 ## Data flow
@@ -77,31 +80,60 @@ Grid files store one grid definition plus per-time-step 2-D arrays (`precipitati
 
 Cases 02 (heatwave) and 03 (cyclone) stay simplified: one time step, no anomaly/trajectory.
 
-## Geospatial validation view (Phase 3A / 3B)
+## Weather analysis workbench (Phase 4 demo)
 
-Shown for the precipitation case only (`eventType === 'extreme_rainfall'`); other cases show a notice and the
-placeholder panels. Everything is still simulated.
+One reusable workspace (`WeatherAnalysisWorkspace`) serves every event type. It consumes a single contract,
+`WeatherAnalysis` (`analysis/analysis.types.ts`), so the UI never knows where the numbers came from.
 
-`PrecipitationWorkspace` builds `FieldData` once (`map/useFieldData.ts`: grids, samplers, footprint outlines, centroid
-paths) and lays out, top to bottom:
+```
+existing mock API adapters (event-monitor, dashboard, event-detail, historical-replay)  ─┐
+retrospective.api.ts (case 01)                                                            ├─→ analysis/analysis.adapter.ts
+deterministic frontend simulation (analysis/fieldSynth.ts, only where the mock has no grid) ┘        ↓ WeatherAnalysis
+                                                                                            WeatherAnalysisWorkspace
+```
 
-1. **Comparison** (default view): **NWP | AI REFINED | REFERENCE** at the same time step. The three maps
-   (`ComparativeWeatherMaps`) share one geographic extent, one colour scale and one viewport (`map/mapSync.ts` moves
-   the others when any map is panned or zoomed). Each shows its own exceedance-footprint outline and the centroid path of
-   the evolving footprint (current step highlighted), with peak / footprint stats underneath, and one shared legend.
-2. **Difference map** (`DifferenceMap`, same size and viewport as the three maps): default *AI refined − NWP*, with
-   *AI refined − Reference* and *NWP − Reference* as secondary options. Diverging scale; solid/dashed outlines show the
-   footprints of the two operands.
-3. **Footprint evolution** (`TemporalEvolution`): footprint area and peak per dataset per time step (bars), from `anomaly`;
-   the centroid coordinates come from `trajectory` (`evolving_footprint_centroid`, *not* a cyclone-style track). Clicking a
-   column sets the shared time step.
-4. **Simulated prototype metrics** (`ValidationStrip`): existing simulated metrics only (peak, MAE, spatial overlap,
-   centroid distance, affected area, peak timing). The detailed table with scope/notes is under a disclosure.
+There is **no HTTP backend** in this repository: the "mock backend API" is the existing `*.api.ts` adapters over
+`src/mockData`. `analysis.adapter.ts` is the only file that reads them; a real backend replaces its inputs, not the UI.
+The header comment there lists every backend field → UI mapping, and the page shows it under "Backend data → UI mapping"
+(each row tagged Backend mock / Derived / Prototype constant).
 
-The **Single field** view (`AnalyticalWeatherMap`, the Phase 3A map: NWP / AI REFINED / REFERENCE / DIFFERENCE with a
-legend overlay) is available from the View switch. The page's `TimeStepSelector` is the only time control; its optional
-Play button advances the same state and stops at the last step. Manual selection always works and pauses playback.
+Scenarios (Weather event selector → Scenario): Extreme Precipitation (backend AS-01, NE-04; retrospective case 01),
+Heatwave (backend heatwave replay mock), Cyclone (backend BOB-02). Old ids `case-b-heatwave` / `case-c-cyclone` redirect.
 
+- **Variables** per event (Precipitation / Temperature / Wind / Pressure); pressure is shown as a deficit below 1010 hPa.
+  Amplitudes come from backend values (peak rainfall, max wind, central pressure, Tmax peaks); shapes, sizes and
+  orientations from `trajectory.hazardFootprint` / `telemetry`; motion from the backend track; evolution from the dashboard
+  forecast timeline (BOB-02) or a derived bump. Thresholds are **prototype** thresholds (backend hazard threshold for
+  precipitation; 0.7 × backend peak or a stated constant otherwise) — never official.
+- **Data views** (one primary visualization at a time): NWP · AI REFINED · (REFERENCE, case 01 only) · DIFFERENCE (AI − NWP,
+  diverging) · ANOMALY (exceedance above the prototype threshold, with a heatmap of the strongest cells) · SATELLITE · RADAR.
+  **Comparison** layout: INPUT | AI REFINED | REFERENCE-or-CONTEXT (synchronized maps) + difference map.
+- **Context layers** (`analysis/contextSynth.ts`) are SIMULATED: radar = Marshall–Palmer reflectivity from the AI
+  precipitation field with deterministic texture inside a 220 km range circle; satellite = brightness-temperature style raster
+  from the same field (clear-sky hot surface for the heatwave). No real IMD radar / INSAT image is used. Opacity control included.
+- **Overlays** (`FieldMap`): backend uncertainty cone and affected-region polygons, centroid/track path (system track for the
+  cyclone, evolving footprint centroid for precipitation, heat-core movement for the heatwave), footprint outlines.
+  MapLibre-native heatmap/line/fill layers are used; **deck.gl is not installed** (nothing here needs GPU-scale rendering).
+- **Panels**: AI REFINEMENT (simulated numbers of the step; "Prototype confidence", "Simulated AI output — not a measured
+  model result"), ANOMALY SUMMARY (peak, affected area, confidence, duration, magnitude), FORECAST EVOLUTION (intensity /
+  area / confidence vs lead; clicking a chart sets the shared step).
+- The page's `TimeStepSelector` is the only time control (Play advances the same state and stops at the last step).
+
+## Geospatial map building blocks (Phase 3A / 3B)
+
+`useFieldData` (`map/useFieldData.ts`) builds grids, samplers, footprint outlines and centroid paths once per selected
+variable. `FieldMap` is the only MapLibre lifecycle; `MapSyncGroup` (`map/mapSync.ts`) keeps comparison maps on one camera.
+For retrospective case 01 the workspace also shows `ValidationStrip` (existing simulated metrics) and the simulated
+satellite-alignment panel (`ObservationalContext`).
+
+- **Default camera (Phase 3C)**: derived from the case data, not hardcoded. `useFieldData` computes `focus`: the bounding box
+  of every exceedance footprint (all datasets, all time steps, `anomaly.*.footprint.boundingRegion`) plus a 40 % margin
+  (min 0.15°), clamped to the grid `extent`; with no footprints it falls back to the full grid extent. `FieldMap` fits the
+  camera to `focus` on load and refits whenever its container is resized, until the user pans or zooms
+  (`MapSyncGroup.pristine`). Padding is capped to half of each dimension so a small container can never produce a
+  world-scale view. The user can still zoom out and pan freely; all maps in the group move together.
+- **Reference places**: `map/places.ts` is a small gazetteer of real Indian cities; those inside the extent are drawn as
+  light labels (the local basemap has no text layer). They are geographic context only — not case data.
 - **Props only**: components receive `FieldData` / contract data from `Retrospective.tsx`; nothing reads JSON.
 - **Legend**: variable and unit come from the data (`Precipitation`, `mm / 6h`; differences e.g. `AI refined − NWP`). The
   prototype threshold is shown only when the contract exposes it, labelled "Not an official IMD threshold."
@@ -133,10 +165,19 @@ polygons (`land-50m`, ~546 kB / 179 kB gzip) are separate lazy chunks, so none o
 worker is bundled by Vite and registered with `setWorkerUrl` (`?worker&url`), because MapLibre otherwise looks for its
 worker next to its own file, which breaks under Vite pre-bundling and chunking.
 
+## Satellite observational context (Phase 3D)
+
+A collapsed, secondary "Observational context" panel below the metrics. For this synthetic case it shows a clearly labelled
+**SIMULATED** context (a synthetic brightness-temperature field built from the simulated reference — not INSAT/MOSDAC data and not
+validation). Each analytic step is aligned to the satellite time as MATCHED / NEARBY / MISSING; MISSING shows no frame. Real
+satellite imagery is deliberately not used with synthetic cases (`CaseInfo.caseKind`). Research, product comparison, MOSDAC access and
+the eventual backend architecture: see `satellite/README.md`.
+
 ## Regenerating / validating the case-01 data
 
 ```bash
 node scripts/generate-retrospective-case-01.mjs   # deterministic; rewrites the JSON files
+node scripts/generate-retrospective-satellite-mock.mjs   # simulated satellite context (run after the above)
 node scripts/validate-retrospective-case-01.mjs   # structure, coordinates, timestamps, units, spacing, NaN,
                                                   # NWP≠AI≠Reference, footprint re-derived from the fields
 ```

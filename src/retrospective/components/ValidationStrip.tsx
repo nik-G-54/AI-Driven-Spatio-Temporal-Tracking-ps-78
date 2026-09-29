@@ -31,17 +31,17 @@ export default function ValidationStrip({ metrics }: ValidationStripProps) {
   ];
 
   return (
-    <section className="flex flex-col gap-2 bg-white p-3 rounded-md border border-[#E2E8F0]" aria-label="Validation metrics strip">
+    <section className="flex flex-col gap-2 bg-[#0B1117] p-3 border border-[#1F2A36]" aria-label="Validation metrics strip">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h3 className="text-body-sm font-bold text-[#0F172A] tracking-wide">SIMULATED PROTOTYPE METRICS</h3>
-        <span className="text-[11px] text-[#475569]">
+        <h3 className="font-mono text-[11.5px] font-semibold tracking-[0.08em] text-[#E6EDF4]">SIMULATED PROTOTYPE METRICS</h3>
+        <span className="text-[11px] text-[#8794A4]">
           Calculated from the simulated fields for illustration — not accuracy, verified performance or a real model score.
         </span>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-left text-[12px]">
           <thead>
-            <tr className="text-[10px] text-[#64748B] uppercase tracking-wider border-b border-[#E2E8F0]">
+            <tr className="font-mono text-[10px] text-[#7F8C9C] uppercase tracking-wider border-b border-[#1F2A36]">
               <th className="py-1 pr-3 font-semibold" />
               {columns.map((c) => (
                 <th key={c.name} className="py-1 pr-3 font-semibold">
@@ -52,12 +52,12 @@ export default function ValidationStrip({ metrics }: ValidationStripProps) {
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.label} className="border-b border-[#F1F5F9]">
-                <th scope="row" className="py-1 pr-3 font-semibold text-[#0F172A]">
+              <tr key={row.label} className="border-b border-[#18212B]">
+                <th scope="row" className="py-1 pr-3 font-mono text-[11px] font-semibold text-[#B7C2CF]">
                   {row.label}
                 </th>
                 {columns.map((c) => (
-                  <td key={c.name} className="py-1 pr-3 font-mono text-[#0F172A]">
+                  <td key={c.name} className="py-1 pr-3 font-mono text-[#E6EDF4]">
                     {formatValue(row.value(c.metric), c.metric.unit)}
                   </td>
                 ))}
@@ -66,7 +66,7 @@ export default function ValidationStrip({ metrics }: ValidationStripProps) {
           </tbody>
         </table>
       </div>
-      <div className="text-[11px] text-[#64748B]">
+      <div className="text-[11px] text-[#7F8C9C]">
         Each metric&apos;s scope (frames, grid, sign convention) is listed in the detailed table below. A dash means the metric has
         no value for that dataset.
       </div>

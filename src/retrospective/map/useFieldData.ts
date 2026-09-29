@@ -21,12 +21,17 @@ export interface FootprintLayer {
 }
 
 export interface FieldData {
+  hasReference: boolean;
+  // Full geographic extent of the gridded data (what the maps can show fields for).
   extent: Extent;
+  // Default camera: the event region (all footprints, every step and dataset) with a
+  // margin, clamped to `extent`. Falls back to `extent` when there is no footprint.
+  focus: Extent;
   variable: string;
   unit: string;
   frameCount: number;
   frame: (key: DatasetKey, index: number) => TimeStepField;
-  // Cell values as drawn on the map (native grid, nearest cell).
+  // Field values as drawn on the map (bilinear between cell centres).
   valueAt: (key: DatasetKey, index: number) => ValueAt;
   // a − b at the same location, each grid bilinearly interpolated.
   differenceAt: (a: DatasetKey, b: DatasetKey, index: number) => ValueAt;
@@ -40,10 +45,32 @@ export interface FieldData {
 
 const KEYS: DatasetKey[] = ['nwp', 'ai', 'reference'];
 
+// Margin around the event region, as a fraction of its size (and a minimum in degrees).
+const FOCUS_MARGIN = 0.4;
+const FOCUS_MIN_MARGIN_DEG = 0.15;
+
+function focusExtent(extent: Extent, anomaly: AnomalyData | null): Extent {
+  const regions = KEYS.flatMap((k) => anomaly?.frames[k] ?? []).flatMap((f) => (f.footprint ? [f.footprint.boundingRegion] : []));
+  if (regions.length === 0) return extent;
+  const north = Math.max(...regions.map((r) => r.north));
+  const south = Math.min(...regions.map((r) => r.south));
+  const east = Math.max(...regions.map((r) => r.east));
+  const west = Math.min(...regions.map((r) => r.west));
+  const padLat = Math.max(FOCUS_MIN_MARGIN_DEG, (north - south) * FOCUS_MARGIN);
+  const padLon = Math.max(FOCUS_MIN_MARGIN_DEG, (east - west) * FOCUS_MARGIN);
+  return {
+    north: Math.min(extent.north, north + padLat),
+    south: Math.max(extent.south, south - padLat),
+    east: Math.min(extent.east, east + padLon),
+    west: Math.max(extent.west, west - padLon),
+  };
+}
+
 interface Input {
   nwp: NwpInput;
   ai: AiOutput;
-  reference: ReferenceData;
+  // null when the analysis has no separate reference (the slot then mirrors the AI field and is never shown).
+  reference: ReferenceData | null;
   anomaly: AnomalyData | null;
   trajectory: TrajectoryData | null;
 }
@@ -53,15 +80,16 @@ interface Input {
 // re-rasterizing when unrelated state changes.
 export function useFieldData({ nwp, ai, reference, anomaly, trajectory }: Input): FieldData {
   return useMemo(() => {
-    const frames: Record<DatasetKey, TimeStepField[]> = { nwp: nwp.frames, ai: ai.frames, reference: reference.frames };
+    const frames: Record<DatasetKey, TimeStepField[]> = { nwp: nwp.frames, ai: ai.frames, reference: (reference ?? ai).frames };
     const clamp = (key: DatasetKey, index: number) => Math.min(index, frames[key].length - 1);
 
     const grids = Object.fromEntries(KEYS.map((k) => [k, frames[k].map((f) => toFieldGrid(f.field))])) as Record<DatasetKey, FieldGrid[]>;
     const gridAt = (key: DatasetKey, index: number) => grids[key][clamp(key, index)];
     const extent = unionExtent(KEYS.flatMap((k) => grids[k].map(gridExtent)));
 
-    const nearest = Object.fromEntries(
-      KEYS.map((k) => [k, grids[k].map((g): ValueAt => (lat, lon) => sampleNearest(g, lat, lon))]),
+    // Bilinear between cell centres (nearest at the grid rim, where bilinear has no neighbours).
+    const smooth = Object.fromEntries(
+      KEYS.map((k) => [k, grids[k].map((g): ValueAt => (lat, lon) => sampleBilinear(g, lat, lon) ?? sampleNearest(g, lat, lon))]),
     ) as Record<DatasetKey, ValueAt[]>;
 
     const peaks = Object.fromEntries(
@@ -99,12 +127,14 @@ export function useFieldData({ nwp, ai, reference, anomaly, trajectory }: Input)
     ) as Record<DatasetKey, Array<PathPoint[] | null>>;
 
     return {
+      hasReference: reference !== null,
       extent,
+      focus: focusExtent(extent, anomaly),
       variable: nwp.variable,
       unit: nwp.unit,
       frameCount: Math.max(...KEYS.map((k) => frames[k].length)),
       frame: (key, index) => frames[key][clamp(key, index)],
-      valueAt: (key, index) => nearest[key][clamp(key, index)],
+      valueAt: (key, index) => smooth[key][clamp(key, index)],
       differenceAt: (a, b, index) => {
         const id = `${a}-${b}-${index}`;
         let sampler = differenceCache.get(id);

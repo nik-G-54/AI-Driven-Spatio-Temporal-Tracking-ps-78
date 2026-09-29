@@ -6,6 +6,9 @@ import type { Map as MapLibreMap } from 'maplibre-gl';
 export class MapSyncGroup {
   private maps = new Set<MapLibreMap>();
   private busy = false;
+  // False until the user pans/zooms any map in the group. While true, maps may
+  // refit their default camera (e.g. after the container is resized).
+  pristine = true;
 
   // Registers a map and returns an unregister function.
   add(map: MapLibreMap): () => void {
@@ -21,11 +24,17 @@ export class MapSyncGroup {
       }
       this.busy = false;
     };
+    // Only user gestures carry an originalEvent; programmatic camera moves do not.
+    const onMoveStart = (event: { originalEvent?: unknown }) => {
+      if (event.originalEvent) this.pristine = false;
+    };
     map.on('move', onMove);
+    map.on('movestart', onMoveStart);
     this.maps.add(map);
 
     return () => {
       map.off('move', onMove);
+      map.off('movestart', onMoveStart);
       this.maps.delete(map);
     };
   }

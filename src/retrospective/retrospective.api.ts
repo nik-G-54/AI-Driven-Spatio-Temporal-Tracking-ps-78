@@ -227,6 +227,7 @@ function buildCase01(): RetrospectiveCase {
 
   const info = {
     caseId: metadataData.case_id,
+    caseKind: 'synthetic_prototype' as const,
     eventType: metadataData.event_type as EventType,
     eventName: metadataData.event_name,
     region: metadataData.region,
@@ -413,6 +414,7 @@ function buildSimplifiedCase(caseId: string, simplified: SimplifiedCase): Retros
   return {
     info: {
       caseId,
+      caseKind: 'synthetic_prototype',
       eventType: simplified.eventType,
       eventName: simplified.eventName,
       region: replay.domain.name,

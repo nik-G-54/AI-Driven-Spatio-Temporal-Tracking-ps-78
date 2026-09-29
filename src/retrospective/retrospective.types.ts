@@ -59,8 +59,15 @@ export interface TimeStepField {
 
 export type EventType = 'extreme_rainfall' | 'heatwave' | 'cyclone';
 
+// What kind of case this is; decides e.g. whether real satellite context may exist.
+//   synthetic_prototype — synthetic timestamps/domain/values (all current cases).
+//   historical_real     — a real past event with real, aligned data.
+//   realtime            — a current event.
+export type CaseKind = 'synthetic_prototype' | 'historical_real' | 'realtime';
+
 export interface CaseInfo {
   caseId: string;
+  caseKind: CaseKind;
   eventType: EventType;
   eventName: string;
   region: string;

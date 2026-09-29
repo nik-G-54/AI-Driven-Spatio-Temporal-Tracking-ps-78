@@ -8,17 +8,17 @@ export default function TopHeader({ status }: TopHeaderProps) {
   const { header } = status;
 
   return (
-    <header className="fixed top-0 left-[248px] right-0 h-[68px] bg-white border-b border-[#E2E8F0] z-40 px-6 flex items-center justify-between">
-      <div className="flex items-center gap-4">
-        <div className="flex flex-col">
-          <div className="text-headline-sm text-[#0F172A] text-[14px] font-bold tracking-tight">
+    <header className="fixed top-0 left-[248px] right-0 h-[68px] bg-white border-b border-[#E2E8F0] z-40 px-6 flex items-center justify-between gap-4 whitespace-nowrap">
+      <div className="flex items-center gap-4 min-w-0">
+        <div className="flex flex-col min-w-0">
+          <div className="text-headline-sm text-[#0F172A] text-[14px] font-bold tracking-tight truncate">
             {header.title}
           </div>
-          <div className="text-body-sm text-[#475569] text-[11px]">{header.subtitle}</div>
+          <div className="text-body-sm text-[#475569] text-[11px] truncate">{header.subtitle}</div>
         </div>
       </div>
 
-      <div className="hidden xl:flex items-center gap-4 px-4 py-1.5 bg-[#F8FAFC] rounded border border-[#E2E8F0]">
+      <div className="hidden xl:flex shrink-0 items-center gap-4 px-4 py-1.5 bg-[#F8FAFC] rounded border border-[#E2E8F0]">
         <div className="flex items-center gap-2 font-mono text-[11px] text-[#0F172A]">
           <span className="material-symbols-outlined text-[16px] text-[#475569]">schedule</span>
           <span>
@@ -34,8 +34,8 @@ export default function TopHeader({ status }: TopHeaderProps) {
         </span>
       </div>
 
-      <div className="flex items-center gap-4">
-        <div className="hidden lg:flex items-center gap-3 font-mono text-[11px]">
+      <div className="flex shrink-0 items-center gap-4">
+        <div className="hidden 2xl:flex items-center gap-3 font-mono text-[11px]">
           <span className="inline-flex items-center gap-1.5 text-[#16A34A] font-semibold">
             <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
             {header.systemReady ? 'SYSTEM READY' : 'SYSTEM DEGRADED'}

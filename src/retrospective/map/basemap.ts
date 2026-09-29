@@ -18,10 +18,48 @@ export function baseStyle(extent: Extent, graticuleStepDeg = 0.5): StyleSpecific
       graticule: { type: 'geojson', data: graticule(extent, graticuleStepDeg) },
     },
     layers: [
-      { id: 'sea', type: 'background', paint: { 'background-color': '#E8F0F7' } },
-      { id: 'land-fill', type: 'fill', source: 'land', paint: { 'fill-color': '#F2EFE8' } },
+      { id: 'sea', type: 'background', paint: { 'background-color': '#EDF2F7' } },
+      { id: 'land-fill', type: 'fill', source: 'land', paint: { 'fill-color': '#F5F3EE' } },
     ],
   };
+}
+
+// Satellite imagery basemap: Sentinel-2 cloudless 2020 mosaic by EOX (CC BY-NC-SA 4.0,
+// non-commercial use with attribution). It is a static, cloud-free composite for
+// geographic orientation — NOT a weather observation and not a satellite image of the
+// event. Darkened so the analytical layers carry the colour. The Natural Earth land fill
+// underneath is the fallback when the tiles cannot be reached (offline).
+export const SATELLITE_CREDIT = 'Imagery: Sentinel-2 cloudless 2020 © EOX IT Services (Copernicus data), CC BY-NC-SA 4.0 · static basemap, not a weather observation';
+
+export function satelliteStyle(extent: Extent): StyleSpecification {
+  return {
+    version: 8,
+    sources: {
+      land: { type: 'geojson', data: EMPTY },
+      graticule: { type: 'geojson', data: graticule(extent, graticuleStep(extent)) },
+      imagery: {
+        type: 'raster',
+        tiles: ['https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg'],
+        tileSize: 256,
+        maxzoom: 14,
+      },
+    },
+    layers: [
+      { id: 'sea', type: 'background', paint: { 'background-color': '#070C12' } },
+      { id: 'land-fill', type: 'fill', source: 'land', paint: { 'fill-color': '#151C24' } },
+      {
+        id: 'imagery',
+        type: 'raster',
+        source: 'imagery',
+        paint: { 'raster-brightness-max': 0.62, 'raster-saturation': -0.45, 'raster-contrast': 0.12, 'raster-fade-duration': 150 },
+      },
+    ],
+  };
+}
+
+export function graticuleStep(extent: Extent): number {
+  const span = Math.max(extent.east - extent.west, extent.north - extent.south);
+  return span > 14 ? 2 : span > 6 ? 1 : 0.5;
 }
 
 // Land polygons are loaded lazily and decoded once, then shared by every map.
